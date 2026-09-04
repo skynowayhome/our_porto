@@ -201,6 +201,7 @@ export const caseStudies = [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDFlpK8Gch6x1oKRaOMsf__hHMKqVBTelHNFXiVnsNr_S1wecPeJqbcTTnRsxiPijmVCV5IuHWecseXIGE9Sp73QEc1bavP3fzYHd7LoauofjoqEkuEbfm1I5ULTWzHcGed-QrZa7qmOtCO9aY7tvmoKKqUarz5xSwZBh1b6KBhkV6aLyGtmMezXj2v96zE5b2n1cjdRKp-K7tHL6IUGsmdrfusEj8coRK8mPynRg3_DfkdJZWxJOGq",
     imageOverlay: {
       text: "Auto-Sync Antrean Pesanan Aktif",
+      status: "Sinkronisasi Otomatis",
     },
     footerLabel: "Teruji di Lingkungan Produksi",
     colorAccent: "primary" as const,

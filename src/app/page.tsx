@@ -423,9 +423,11 @@ export default function HomePage() {
                           <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
                           <span className="truncate">{cs.imageOverlay.text}</span>
                         </span>
-                        <span className="text-emerald-600 font-semibold shrink-0 ml-2 text-[11px] sm:text-xs">
-                          {cs.imageOverlay.status}
-                        </span>
+                        {"status" in cs.imageOverlay && cs.imageOverlay.status ? (
+                          <span className="text-emerald-600 font-semibold shrink-0 ml-2 text-[11px] sm:text-xs">
+                            {cs.imageOverlay.status}
+                          </span>
+                        ) : null}
                       </div>
                     </div>
                   </div>
