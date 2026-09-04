@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-tertiary-container": "#f3fffc",
+          "inverse-surface": "#31312b",
+          "on-primary-container": "#fdfcff",
+          "surface-dim": "#dddad2",
+          "primary-container": "#4477b0",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary-fixed": "#0a1f1d",
+          "tertiary-fixed-dim": "#b4cbc7",
+          "on-error-container": "#93000a",
+          "background": "#fcf9f1",
+          "tertiary-container": "#637976",
+          "inverse-on-surface": "#f4f1e8",
+          "secondary-container": "#a2e0fe",
+          "on-primary-fixed-variant": "#01497f",
+          "on-secondary": "#ffffff",
+          "on-error": "#ffffff",
+          "secondary-fixed": "#bee9ff",
+          "on-surface-variant": "#42474f",
+          "surface-container-low": "#f6f3eb",
+          "outline": "#727781",
+          "tertiary": "#4b605d",
+          "surface": "#fcf9f1",
+          "on-primary-fixed": "#001c37",
+          "on-background": "#1c1c17",
+          "inverse-primary": "#a0c9ff",
+          "on-tertiary-fixed-variant": "#364b48",
+          "on-primary": "#ffffff",
+          "surface-bright": "#fcf9f1",
+          "primary": "#275e95",
+          "surface-variant": "#e5e2da",
+          "on-secondary-fixed": "#001f2a",
+          "primary-fixed-dim": "#a0c9ff",
+          "error": "#ba1a1a",
+          "on-tertiary": "#ffffff",
+          "on-secondary-container": "#20647e",
+          "outline-variant": "#c2c7d1",
+          "surface-tint": "#2a6198",
+          "error-container": "#ffdad6",
+          "surface-container": "#f1eee6",
+          "on-secondary-fixed-variant": "#004d64",
+          "surface-container-high": "#ebe8e0",
+          "on-surface": "#1c1c17",
+          "tertiary-fixed": "#d0e7e3",
+          "surface-container-highest": "#e5e2da",
+          "primary-fixed": "#d2e4ff",
+          "secondary-fixed-dim": "#92cfec",
+          "secondary": "#22657f"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.75rem",
+          "space-2xs": "0.25rem",
+          "space-lg": "1.5rem",
+          "space-3xl": "4.5rem",
+          "gutter-desktop": "2rem",
+          "space-md": "1rem",
+          "space-2xl": "3rem",
+          "space-xl": "2rem",
+          "container-max": "1280px",
+          "gutter-tablet": "1.5rem",
+          "space-xs": "0.5rem",
+          "gutter-mobile": "1rem",
+          "space-4xl": "6rem"
+        },
+        "fontFamily": {
+          "body": ["IBM Plex Sans", "sans-serif"],
+          "headline": ["IBM Plex Sans", "sans-serif"],
+          "display": ["IBM Plex Sans", "sans-serif"],
+          "label": ["Inter", "sans-serif"]
+        }
+      }
+    }
+  }
+</script></head><body class="bg-background font-headline text-on-surface antialiased selection:bg-primary selection:text-white"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-surface-dim shadow-[0_2px_12px_rgba(28,28,23,0.04)]"><div class="h-20 max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs group" data-path="beranda" href="#"><img alt="Skyy Dev Studio Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VY2rWKDIxZX9-gdTAUU7BzH0y1Pb82s90jXVUoQp0nCq-aeSwsJpIMDPjGwvLeKd6fsydIznVuWScolBTHNpixEUInTNl8wGRHlJ3DRFZScPDR_jC2Lz7GU9vqfaSnoDW0sHF2HtFaQdO2lkuUFkvlwxOdAfAtN6Cl_ueVH3j-xqZiI5sLL6ISn3PtFplmubppAyW7fkRl3HqGhPWn6AcefxMWvWRTnhkxxwbHG1cacF9vC2QzuC0cpQ"/><span class="font-headline text-[22px] tracking-tight text-primary font-bold">SKYY<span class="text-secondary">.DEV</span></span></a><div class="hidden xl:inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded-full bg-surface-container border border-surface-dim"><span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span><span class="font-headline text-[12px] font-medium text-secondary">Siap Membantu Proyek Baru</span></div></div><nav class="hidden md:flex items-center gap-space-lg"><a class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" data-path="layanan" href="#">Layanan</a><a class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" data-path="portofolio" href="#">Portofolio</a><a aria-current="page" class="text-sm font-semibold text-primary transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full" data-path="tim" href="#">Tim Partner</a><a class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" data-path="kontak" href="#">Kontak</a></nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center justify-center gap-2 px-space-lg py-2.5 rounded-lg bg-primary hover:bg-primary-container text-white font-headline text-xs uppercase font-bold tracking-wider shadow-sm hover:shadow transition-all duration-200" data-path="kontak" href="#"><span class="material-symbols-outlined text-[16px]">chat</span><span>Mulai Konsultasi</span></a><img alt="Profile" class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20 p-0.5 bg-surface-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_uMgXzN69KgnPBxsgwaOQCp3c67CaQ9JMHD-IvcZN4xS3oIb3F0m6V0zqo869snSCzeNpRM-BcGddyRdXFhIQaC__lypINXGyFP7IP6DE8l1cBp0zYihTJkngXjFWpvW1_lol4toKJUqor9T4416vmvClAzmy2-YjqdBkcdPi8KA-m6Si_LsJjHXQDWkuS-iPCFd-xGrTZ-YbH3acFhhZmF-LJ_ymtvFsf_cRs9es57vPAhyn2_nE"/></div></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Hero Section: Warm, Friendly, Trust-Building in Porto Theme -->
+<section class="relative w-full py-space-3xl lg:py-space-4xl overflow-hidden bg-gradient-to-b from-surface-container-low via-background to-surface border-b border-surface-dim">
+<!-- Porto Theme Warm Accents -->
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[380px] bg-secondary-container/30 blur-[130px] rounded-full pointer-events-none -z-10"></div>
+<div class="absolute top-12 right-12 w-[420px] h-[300px] bg-primary-fixed/40 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+<div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop flex flex-col items-center text-center">
+<!-- Friendly Trust Badge -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-container-lowest border border-surface-dim shadow-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="font-headline text-xs text-primary font-semibold tracking-wide">Studio Rekayasa Digital • Duo Partner Berpengalaman</span>
+</div>
+<!-- Main Headline -->
+<h1 class="mt-space-lg font-headline text-3xl sm:text-4xl lg:text-5xl font-extrabold text-on-surface max-w-4xl tracking-tight leading-tight">
+  Kenali Rekan Teknologi Anda:<br/>
+<span class="text-primary">Langsung Dikerjakan Pembuatnya</span>, Bukan Dilempar Tim Lepas
+</h1>
+<!-- Subtitle Description -->
+<p class="mt-space-md font-body text-base sm:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+  Kami bukan agensi besar dengan birokrasi rumit dan perantara sales. Bersama <strong class="text-on-surface">Skyy</strong> dan <strong class="text-on-surface">Aris</strong>, setiap ide aplikasi dan sistem bisnis Anda dieksekusi dengan teliti, transparan, dan penuh dedikasi seperti merawat produk sendiri.
+</p>
+<!-- Key Warm Trust Strip -->
+<div class="mt-space-2xl grid grid-cols-2 lg:grid-cols-4 gap-space-md w-full max-w-4xl">
+<div class="p-space-md rounded-xl bg-surface-container-lowest border border-surface-dim shadow-sm flex flex-col items-center text-center hover:border-primary/40 transition-all">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined text-[20px]">person_check</span>
+</div>
+<span class="font-headline text-base sm:text-lg font-bold text-on-surface">100% Langsung</span>
+<span class="text-xs text-on-surface-variant mt-0.5">Bicara ke insinyur inti</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest border border-surface-dim shadow-sm flex flex-col items-center text-center hover:border-primary/40 transition-all">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/50 flex items-center justify-center text-secondary mb-2">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+<span class="font-headline text-base sm:text-lg font-bold text-secondary">Hak Cipta Penuh</span>
+<span class="text-xs text-on-surface-variant mt-0.5">Semua kode 100% milik Anda</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest border border-surface-dim shadow-sm flex flex-col items-center text-center hover:border-primary/40 transition-all">
+<div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-700 mb-2">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<span class="font-headline text-base sm:text-lg font-bold text-on-surface">Respons Cepat</span>
+<span class="text-xs text-on-surface-variant mt-0.5">Update berkala tanpa gantung</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest border border-surface-dim shadow-sm flex flex-col items-center text-center hover:border-primary/40 transition-all">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed/60 flex items-center justify-center text-tertiary mb-2">
+<span class="material-symbols-outlined text-[20px]">handshake</span>
+</div>
+<span class="font-headline text-base sm:text-lg font-bold text-on-surface">Garansi Pendampingan</span>
+<span class="text-xs text-on-surface-variant mt-0.5">Ditemani hingga benar-benar jalan</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Profiles Section: Duo Insinyur (Porto Clean White Cards) -->
+<section class="w-full py-space-3xl bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop flex flex-col gap-space-2xl">
+<!-- Section Header -->
+<div class="text-center max-w-2xl mx-auto">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-primary text-xs font-semibold uppercase tracking-wider mb-2 border border-surface-dim">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+    DUO FOUNDER &amp; LEAD ENGINEERS
+  </div>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-on-surface tracking-tight">
+    Dua Insinyur di Balik Layar Produk Anda
+  </h2>
+<p class="mt-2 text-sm sm:text-base text-on-surface-variant">
+    Kombinasi lengkap antara sistem cloud &amp; website yang stabil dengan aplikasi mobile berkecepatan tinggi yang ramah digunakan pengguna Anda.
+  </p>
+</div>
+<!-- Split Duo Engineers Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-xl items-stretch">
+<!-- ENGINEER 1: Skyy -->
+<article class="flex flex-col justify-between rounded-xl bg-surface-container-lowest border border-surface-dim hover:border-primary/50 p-space-xl shadow-[0_4px_20px_rgba(28,28,23,0.04)] hover:shadow-md transition-all duration-200 relative overflow-hidden group">
+<div>
+<!-- Header Profile & Photo -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-lg">
+<div class="relative shrink-0">
+<img alt="Skyy Lead Architect Portrait" class="w-28 h-28 sm:w-32 sm:h-32 rounded-xl object-cover ring-2 ring-primary/20 shadow-md" src="https://lh3.googleusercontent.com/aida/AEtjO1VeU-QufriBmqb50Gt-qNWGnccfdYcqDyLw3gwsK0BFGx0OoSxkndLMMhzdFuwCfG_R473HUnmXZH6NA3YY5i0uWNcxFOc8Bo6eSdoTD_VM-J-92jdb6SQD3_jB6nAPb8Tvw_FL4TuuA6gZtyxRMVSGx96MTbgANH-_t2pjTfWPGcXrSGTLJWSYRSIPH7mIlDqueAq2ff4lG39PqKOYn1re9dTgEqQ03YjO3Ci604AMZTh5ACilfcwsx3g"/>
+<span class="absolute -bottom-2 -right-1 px-2.5 py-0.5 rounded-full bg-surface-container-lowest border border-primary/30 text-primary text-[11px] font-bold shadow-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            Partner Inti
+          </span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-headline text-2xl text-on-surface font-bold">Skyy</h3>
+<span class="px-2 py-0.5 rounded-md bg-primary-fixed text-primary font-headline text-xs font-semibold">Web &amp; Cloud Lead</span>
+</div>
+<p class="mt-1 font-headline text-sm font-semibold text-primary">
+            Ahli Website, Dashboard &amp; Sistem Cloud
+          </p>
+<div class="flex items-center gap-1.5 mt-2 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">cloud_sync</span>
+<span>Spesialis Sistem Anti-Down, Skalabilitas &amp; Database Cepat</span>
+</div>
+</div>
+</div>
+<!-- Humanist Bio & Role -->
+<div class="mt-space-lg p-space-md rounded-lg bg-surface-container-low border border-surface-dim">
+<span class="text-[11px] font-bold text-primary uppercase tracking-wider block mb-1">
+          FOKUS &amp; PERAN UNTUK BISNIS ANDA
+        </span>
+<p class="font-body text-sm text-on-surface leading-relaxed">
+          "Saya memastikan sistem bisnis Anda bekerja mulus tanpa kendala teknis yang bikin pusing. Dari website perusahaan berkecepatan tinggi, sistem dashboard laporan otomatis, hingga server cloud yang aman dari serangan dan siap menampung lonjakan ribuan pelanggan."
+        </p>
+</div>
+<!-- What Skyy Builds for Clients -->
+<div class="mt-space-md flex flex-col gap-1.5">
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">
+          Solusi yang Dikelola Skyy:
+        </span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-on-surface">
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container/70 border border-surface-dim/40">
+<span class="material-symbols-outlined text-[16px] text-primary">language</span>
+<span>Portal &amp; Web Bisnis Modern</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container/70 border border-surface-dim/40">
+<span class="material-symbols-outlined text-[16px] text-primary">dashboard</span>
+<span>Dashboard Admin &amp; Analitik</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container/70 border border-surface-dim/40">
+<span class="material-symbols-outlined text-[16px] text-primary">database</span>
+<span>Integrasi Database &amp; API</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container/70 border border-surface-dim/40">
+<span class="material-symbols-outlined text-[16px] text-primary">cloud_done</span>
+<span>Setup Server Cloud &amp; Backup</span>
+</div>
+</div>
+</div>
+<!-- Tech Stack Badges -->
+<div class="mt-space-md flex flex-wrap items-center gap-1.5 pt-1">
+<span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-primary font-medium">Next.js</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-on-surface font-medium">Node.js</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-on-surface font-medium">PostgreSQL</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-primary font-medium">Docker</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-on-surface font-medium">CodeIgniter</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-primary font-medium">Redis</span>
+</div>
+</div>
+<!-- Contact Direct Action -->
+<div class="mt-space-xl pt-space-md border-t border-surface-dim flex items-center justify-between gap-2 flex-wrap">
+<div class="flex items-center gap-1 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-emerald-600">check_circle</span>
+<span>Konsultasi arsitektur web tersedia</span>
+</div>
+<div class="flex items-center gap-2">
+<a class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-dim text-xs text-on-surface transition-colors font-medium" href="https://github.com" rel="noreferrer" target="_blank">GitHub</a>
+<a class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-dim text-xs text-on-surface transition-colors font-medium" href="https://linkedin.com" rel="noreferrer" target="_blank">LinkedIn</a>
+<a class="px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-container text-white text-xs font-semibold transition-colors" href="mailto:skyy@skyy.dev">Hubungi Skyy</a>
+</div>
+</div>
+</article>
+<!-- ENGINEER 2: Aris -->
+<article class="flex flex-col justify-between rounded-xl bg-surface-container-lowest border border-surface-dim hover:border-secondary/50 p-space-xl shadow-[0_4px_20px_rgba(28,28,23,0.04)] hover:shadow-md transition-all duration-200 relative overflow-hidden group">
+<div>
+<!-- Header Profile & Photo/Avatar -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-lg">
+<div class="relative shrink-0">
+<div class="w-28 h-28 sm:w-32 sm:h-32 rounded-xl bg-gradient-to-br from-secondary-fixed via-surface-container to-surface-container-high ring-2 ring-secondary/30 shadow-md flex flex-col items-center justify-center text-center p-3 relative overflow-hidden">
+<div class="w-14 h-14 rounded-full bg-secondary text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[28px]">smartphone</span>
+</div>
+<span class="font-headline text-xs text-secondary font-bold mt-2">ARIS</span>
+<span class="text-[10px] text-on-surface-variant">Mobile Eng.</span>
+</div>
+<span class="absolute -bottom-2 -right-1 px-2.5 py-0.5 rounded-full bg-surface-container-lowest border border-secondary/30 text-secondary text-[11px] font-bold shadow-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Partner Inti
+          </span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-headline text-2xl text-on-surface font-bold">Aris</h3>
+<span class="px-2 py-0.5 rounded-md bg-secondary-fixed text-secondary font-headline text-xs font-semibold">Mobile &amp; Engine Lead</span>
+</div>
+<p class="mt-1 font-headline text-sm font-semibold text-secondary">
+            Ahli Aplikasi Mobile &amp; Performa Mesin
+          </p>
+<div class="flex items-center gap-1.5 mt-2 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">offline_bolt</span>
+<span>Spesialis Aplikasi Lancar, Fitur Offline &amp; Hardware Kasir</span>
+</div>
+</div>
+</div>
+<!-- Humanist Bio & Role -->
+<div class="mt-space-lg p-space-md rounded-lg bg-surface-container-low border border-surface-dim">
+<span class="text-[11px] font-bold text-secondary uppercase tracking-wider block mb-1">
+          FOKUS &amp; PERAN UNTUK BISNIS ANDA
+        </span>
+<p class="font-body text-sm text-on-surface leading-relaxed">
+          "Saya merancang aplikasi smartphone Android &amp; iOS yang terasa ringan, tidak gampang crash, dan tetap bisa dipakai walau sinyal internet tiba-tiba hilang. Cocok untuk aplikasi lapangan, sistem kasir (POS), dan perhitungan algoritma yang butuh kecepatan instan."
+        </p>
+</div>
+<!-- What Aris Builds for Clients -->
+<div class="mt-space-md flex flex-col gap-1.5">
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">
+          Solusi yang Dikelola Aris:
+        </span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-on-surface">
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container/70 border border-surface-dim/40">
+<span class="material-symbols-outlined text-[16px] text-secondary">phone_iphone</span>
+<span>App Android &amp; iOS (Flutter)</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container/70 border border-surface-dim/40">
+<span class="material-symbols-outlined text-[16px] text-secondary">signal_wifi_off</span>
+<span>Sistem Kerja Offline-First</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container/70 border border-surface-dim/40">
+<span class="material-symbols-outlined text-[16px] text-secondary">point_of_sale</span>
+<span>Koneksi Mesin Kasir / Printer</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container/70 border border-surface-dim/40">
+<span class="material-symbols-outlined text-[16px] text-secondary">speed</span>
+<span>Algoritma Rute &amp; Komputasi C++</span>
+</div>
+</div>
+</div>
+<!-- Tech Stack Badges -->
+<div class="mt-space-md flex flex-wrap items-center gap-1.5 pt-1">
+<span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-secondary font-medium">Flutter</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-on-surface font-medium">Dart</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-on-surface font-medium">SQLite Engine</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-secondary font-medium">C++ Native</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-on-surface font-medium">Kotlin</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-secondary font-medium">POS Protocols</span>
+</div>
+</div>
+<!-- Contact Direct Action -->
+<div class="mt-space-xl pt-space-md border-t border-surface-dim flex items-center justify-between gap-2 flex-wrap">
+<div class="flex items-center gap-1 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-emerald-600">check_circle</span>
+<span>Konsultasi aplikasi mobile tersedia</span>
+</div>
+<div class="flex items-center gap-2">
+<a class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-dim text-xs text-on-surface transition-colors font-medium" href="https://github.com" rel="noreferrer" target="_blank">GitHub</a>
+<a class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-dim text-xs text-on-surface transition-colors font-medium" href="https://linkedin.com" rel="noreferrer" target="_blank">LinkedIn</a>
+<a class="px-3 py-1.5 rounded-lg bg-secondary hover:bg-on-secondary-container text-white text-xs font-semibold transition-colors" href="mailto:aris@skyy.dev">Hubungi Aris</a>
+</div>
+</div>
+</article>
+</div>
+<!-- Sinergi Duo Card (Porto Style) -->
+<div class="w-full rounded-xl bg-surface-container-lowest border border-surface-dim p-space-lg sm:p-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg shadow-sm">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[26px]">all_inclusive</span>
+</div>
+<div>
+<h4 class="font-headline text-base sm:text-lg font-bold text-on-surface">Sinergi Sempurna: Satu Tim untuk Semua Kebutuhan</h4>
+<p class="text-xs sm:text-sm text-on-surface-variant mt-0.5">Website dan aplikasi HP Anda langsung terkoneksi harmonis tanpa perlu menyewa dua vendor terpisah.</p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<div class="flex items-center gap-1 text-xs text-primary font-semibold bg-surface-container px-3 py-1.5 rounded-lg border border-surface-dim">
+<span class="material-symbols-outlined text-[15px] text-primary">sync</span>
+      Tersinkronisasi Otomatis
+    </div>
+<div class="flex items-center gap-1 text-xs text-secondary font-semibold bg-surface-container px-3 py-1.5 rounded-lg border border-surface-dim">
+<span class="material-symbols-outlined text-[15px] text-secondary">verified</span>
+      Kompatibilitas 100%
+    </div>
+</div>
+</div>
+</div>
+</section>
+<!-- NILAI TAMBAH: Kenapa Klien Nyaman Kerja Sama dengan Kami -->
+<section class="w-full py-space-3xl bg-surface relative border-b border-surface-dim">
+<div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop flex flex-col gap-space-2xl">
+<div class="flex flex-col items-center text-center max-w-2xl mx-auto">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-primary text-xs font-semibold uppercase tracking-wider mb-2 border border-surface-dim">
+<span class="material-symbols-outlined text-[16px]">sentiment_satisfied</span>
+      PENGALAMAN KERJA SAMA YANG MENENANGKAN
+    </div>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-on-surface tracking-tight">
+      Kenapa Klien Merasa Nyaman &amp; Bebas Khawatir Bersama Kami?
+    </h2>
+<p class="mt-2 text-sm sm:text-base text-on-surface-variant">
+      Banyak orang ragu membuat aplikasi karena takut teknis yang rumit, biaya tersembunyi, atau ditinggal setelah selesai. Bersama kami, Anda mendapatkan rasa aman seutuhnya.
+    </p>
+</div>
+<!-- 4 Comfort Pillars Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Card 1 -->
+<div class="p-space-xl rounded-xl bg-surface-container-lowest border border-surface-dim hover:border-primary/40 transition-all flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[26px]">record_voice_over</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface">
+          1. Bicara Langsung ke Pembuatnya (Tanpa Perantara Sales)
+        </h3>
+<p class="mt-2 text-sm text-on-surface-variant leading-relaxed">
+          Tidak ada pesan yang "salah paham" karena dioper dari sales ke manajer lalu ke programmer. Setiap keluhan, ide baru, atau konsultasi dijawab langsung oleh Skyy atau Aris dengan bahasa sederhana dan solutif.
+        </p>
+</div>
+<div class="mt-space-lg pt-space-sm border-t border-surface-dim flex items-center gap-2 text-xs font-medium text-primary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Diskusi cepat via WhatsApp, Google Meet, atau Slack</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-xl rounded-xl bg-surface-container-lowest border border-surface-dim hover:border-secondary/40 transition-all flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-12 h-12 rounded-lg bg-secondary-container/50 flex items-center justify-center text-secondary mb-space-md">
+<span class="material-symbols-outlined text-[26px]">lock_open</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface">
+          2. Kepemilikan 100% Milik Anda (Tanpa Terkunci)
+        </h3>
+<p class="mt-2 text-sm text-on-surface-variant leading-relaxed">
+          Semua source code, akun database, dan server sepenuhnya atas nama Anda. Kami tidak menahan aset digital Anda. Jika di kemudian hari tim Anda ingin mengelolanya sendiri, transisinya sangat mudah dan terdokumentasi rapi.
+        </p>
+</div>
+<div class="mt-space-lg pt-space-sm border-t border-surface-dim flex items-center gap-2 text-xs font-medium text-secondary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Aset digital mandiri, Anda pemegang kendali mutlak</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-xl rounded-xl bg-surface-container-lowest border border-surface-dim hover:border-emerald-600/40 transition-all flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-700 mb-space-md">
+<span class="material-symbols-outlined text-[26px]">support_agent</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface">
+          3. Garansi Pendampingan Tanpa Pusing
+        </h3>
+<p class="mt-2 text-sm text-on-surface-variant leading-relaxed">
+          Kami tidak langsung menghilang saat aplikasi diluncurkan. Kami sediakan masa garansi bug-fix cuma-cuma, panduan pemakaian video/dokumen untuk staf Anda, dan siap siaga jika ada kendala pasca-rilis.
+        </p>
+</div>
+<div class="mt-space-lg pt-space-sm border-t border-surface-dim flex items-center gap-2 text-xs font-medium text-emerald-700">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Dukungan perbaikan bug gratis pasca peluncuran</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="p-space-xl rounded-xl bg-surface-container-lowest border border-surface-dim hover:border-primary/40 transition-all flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[26px]">update</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface">
+          4. Pengerjaan Tepat Waktu &amp; Transparan
+        </h3>
+<p class="mt-2 text-sm text-on-surface-variant leading-relaxed">
+          Setiap dua minggu Anda bisa langsung mencoba versi aplikasi yang sedang dibangun melalui link demo khusus. Anda melihat perkembangan nyata langkah demi langkah tanpa rasa cemas menunggu hasil akhir.
+        </p>
+</div>
+<div class="mt-space-lg pt-space-sm border-t border-surface-dim flex items-center gap-2 text-xs font-medium text-primary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Akses demo berkala, progres jelas dan terpantau</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Workflow Timeline: 4 Tahapan Kerja yang Jelas & Estetik -->
+<section class="w-full py-space-3xl bg-surface-container-low border-b border-surface-dim">
+<div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop flex flex-col gap-space-2xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-primary text-xs font-semibold uppercase tracking-wider mb-2 border border-surface-dim">
+<span class="material-symbols-outlined text-[16px]">timeline</span>
+        LANGKAH KERJA PRAKTIS
+      </div>
+<h2 class="font-headline text-2xl sm:text-3xl font-bold text-on-surface tracking-tight">
+        Alur Kerja Bersama Kami: 4 Tahap Sederhana
+      </h2>
+</div>
+<p class="text-xs sm:text-sm text-on-surface-variant max-w-md">
+      Proses terarah agar Anda tahu persis apa yang sedang dikerjakan dan kapan produk Anda siap digunakan.
+    </p>
+</div>
+<!-- 4 Step Timeline Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md relative">
+<!-- Step 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest border border-surface-dim hover:border-primary/40 transition-all flex flex-col justify-between relative group shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed text-primary font-headline font-bold text-sm flex items-center justify-center border border-primary/20">
+          01
+        </div>
+<span class="text-xs font-medium text-on-surface-variant bg-surface-container px-2 py-0.5 rounded border border-surface-dim/60">1 - 3 Hari</span>
+</div>
+<div>
+<h4 class="font-headline text-base font-bold text-on-surface group-hover:text-primary transition-colors">
+          Diskusi Santai &amp; Rencana Sistem
+        </h4>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">
+          Kita ngobrol santai mengenai kebutuhan bisnis Anda, fitur apa saja yang wajib ada, serta estimasi waktu dan biaya yang transparan tanpa ada yang ditutup-tutupi.
+        </p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-dim flex items-center gap-1.5 text-[11px] text-primary font-medium">
+<span class="material-symbols-outlined text-[15px]">description</span>
+<span>Hasil: Dokumen Rencana &amp; Biaya Pasti</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest border border-surface-dim hover:border-secondary/40 transition-all flex flex-col justify-between relative group shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="w-9 h-9 rounded-lg bg-secondary-fixed text-secondary font-headline font-bold text-sm flex items-center justify-center border border-secondary/20">
+          02
+        </div>
+<span class="text-xs font-medium text-on-surface-variant bg-surface-container px-2 py-0.5 rounded border border-surface-dim/60">Tiap 2 Minggu</span>
+</div>
+<div>
+<h4 class="font-headline text-base font-bold text-on-surface group-hover:text-secondary transition-colors">
+          Pengerjaan &amp; Coba Langsung Versi Awal
+        </h4>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">
+          Skyy dan Aris mulai merakit aplikasi. Setiap dua minggu, Anda diberi link khusus untuk mencoba langsung tampilan dan tombol-tombolnya dari HP atau laptop Anda.
+        </p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-dim flex items-center gap-1.5 text-[11px] text-secondary font-medium">
+<span class="material-symbols-outlined text-[15px]">touch_app</span>
+<span>Hasil: Link Demo Nyata &amp; Feedback</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest border border-surface-dim hover:border-emerald-600/40 transition-all flex flex-col justify-between relative group shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-700 font-headline font-bold text-sm flex items-center justify-center border border-emerald-200">
+          03
+        </div>
+<span class="text-xs font-medium text-on-surface-variant bg-surface-container px-2 py-0.5 rounded border border-surface-dim/60">Uji Ketat</span>
+</div>
+<div>
+<h4 class="font-headline text-base font-bold text-on-surface group-hover:text-emerald-700 transition-colors">
+          Penyempurnaan &amp; Uji Keamanan
+        </h4>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">
+          Sebelum dirilis resmi, sistem diuji pada berbagai kondisi internet lambat, transaksi padat, dan perlindungan privasi data agar tidak ada error di depan pelanggan.
+        </p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-dim flex items-center gap-1.5 text-[11px] text-emerald-700 font-medium">
+<span class="material-symbols-outlined text-[15px]">security</span>
+<span>Hasil: Aplikasi Stabil &amp; Aman</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest border border-surface-dim hover:border-primary/40 transition-all flex flex-col justify-between relative group shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed text-primary font-headline font-bold text-sm flex items-center justify-center border border-primary/20">
+          04
+        </div>
+<span class="text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded font-semibold">Peluncuran</span>
+</div>
+<div>
+<h4 class="font-headline text-base font-bold text-on-surface group-hover:text-primary transition-colors">
+          Peluncuran &amp; Serah Terima Kunci
+        </h4>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">
+          Aplikasi resmi tayang di Google Play, App Store, atau domain Anda. Semua hak akses diserahkan penuh, plus tutorial panduan mudah untuk tim kerja Anda.
+        </p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-dim flex items-center gap-1.5 text-[11px] text-primary font-medium">
+<span class="material-symbols-outlined text-[15px]">rocket_launch</span>
+<span>Hasil: Siap Pakai + Panduan Lengkap</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom CTA Banner Section (Porto Light Warm Card) -->
+<section class="w-full py-space-3xl lg:py-space-4xl bg-surface relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop">
+<div class="rounded-2xl bg-surface-container-lowest border border-surface-dim p-space-xl lg:p-space-3xl shadow-[0_8px_30px_rgba(28,28,23,0.06)] flex flex-col items-center text-center relative overflow-hidden">
+<!-- Soft ambient accent -->
+<div class="absolute -top-24 -right-24 w-72 h-72 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-72 h-72 bg-primary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-primary text-xs font-semibold mb-space-md border border-surface-dim">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+        KONSULTASI AWAL GRATIS &amp; RAMAH
+      </div>
+<h2 class="font-headline text-2xl sm:text-3xl lg:text-4xl font-extrabold text-on-surface max-w-2xl tracking-tight leading-snug">
+        Punya Rencana Aplikasi atau Website?<br/>
+        Mari Mengobrol Dulu Tanpa Beban
+      </h2>
+<p class="mt-3 font-body text-sm sm:text-base text-on-surface-variant max-w-xl leading-relaxed">
+        Ceritakan ide sistem Anda langsung ke <strong class="text-on-surface">Skyy</strong> &amp; <strong class="text-on-surface">Aris</strong>. Kami bantu berikan masukan arsitektur teknis yang efisien dan hemat biaya untuk Anda.
+      </p>
+<!-- Action Buttons -->
+<div class="mt-space-xl flex flex-col sm:flex-row items-center gap-space-md w-full sm:w-auto">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-space-xl py-3.5 rounded-lg bg-primary hover:bg-primary-container text-white font-headline text-sm font-bold shadow-sm hover:shadow transition-all" data-path="kontak" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span>Jadwalkan Obrolan Singkat</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-space-xl py-3.5 rounded-lg bg-surface-container hover:bg-surface-dim text-on-surface font-headline text-sm font-semibold transition-all border border-surface-dim" data-path="portofolio" href="#">
+<span class="material-symbols-outlined text-[20px]">collections</span>
+<span>Lihat Karya Sebelumnya</span>
+</a>
+</div>
+<!-- Reassurance Points -->
+<div class="mt-space-lg flex flex-wrap items-center justify-center gap-space-md text-on-surface-variant text-xs font-medium">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-emerald-600">verified</span>
+          Tanpa Tekanan Kontrak
+        </span>
+<span class="text-surface-dim hidden sm:inline">•</span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">lock</span>
+          Kerahasiaan Ide Terjaga (NDA)
+        </span>
+<span class="text-surface-dim hidden sm:inline">•</span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">speed</span>
+          Estimasi Terukur &amp; Jelas
+        </span>
+</div>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-low border-t border-surface-dim"><div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop py-space-2xl flex flex-col gap-space-xl"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-xl"><div class="flex flex-col gap-1.5"><div class="flex items-center gap-space-xs"><img alt="Skyy Dev Studio Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VY2rWKDIxZX9-gdTAUU7BzH0y1Pb82s90jXVUoQp0nCq-aeSwsJpIMDPjGwvLeKd6fsydIznVuWScolBTHNpixEUInTNl8wGRHlJ3DRFZScPDR_jC2Lz7GU9vqfaSnoDW0sHF2HtFaQdO2lkuUFkvlwxOdAfAtN6Cl_ueVH3j-xqZiI5sLL6ISn3PtFplmubppAyW7fkRl3HqGhPWn6AcefxMWvWRTnhkxxwbHG1cacF9vC2QzuC0cpQ"/><span class="font-headline text-lg text-primary font-bold">SKYY<span class="text-secondary">.DEV</span></span></div><p class="font-body text-xs text-on-surface-variant max-w-sm">Studio rekayasa digital berdedikasi tinggi yang dijalankan langsung oleh dua insinyur perangkat lunak profesional.</p></div><div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-md"><span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Teknologi Utama:</span><div class="flex flex-wrap items-center gap-1.5"><span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-primary font-medium">Next.js</span><span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-secondary font-medium">Flutter</span><span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-on-surface font-medium">Tailwind CSS</span><span class="px-2.5 py-1 rounded-md bg-surface-container border border-surface-dim/60 text-xs text-on-surface font-medium">PostgreSQL</span></div></div><div class="flex items-center gap-2"><a class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-dim text-xs text-on-surface transition-colors font-medium border border-surface-dim/60" href="https://github.com" rel="noreferrer" target="_blank">GitHub</a><a class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-dim text-xs text-on-surface transition-colors font-medium border border-surface-dim/60" href="https://linkedin.com" rel="noreferrer" target="_blank">LinkedIn</a><a class="px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-container text-white text-xs font-semibold transition-colors" href="mailto:contact@skyy.dev">Email Kami</a></div></div><div class="flex flex-col sm:flex-row items-center justify-between gap-2 pt-space-md border-t border-surface-dim text-xs text-on-surface-variant"><span>© 2024 Skyy.dev Studio — Dibuat dengan penuh dedikasi oleh Skyy &amp; Aris.</span><div class="flex items-center gap-1.5 font-medium"><span class="w-2 h-2 rounded-full bg-emerald-600"></span><span>Selalu siap mendengar rencana digital Anda</span></div></div></div></footer></body></html>
