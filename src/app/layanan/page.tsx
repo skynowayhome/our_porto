@@ -145,7 +145,6 @@ export default function LayananPage() {
       <section className="max-w-container mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16">
         <FadeInView>
           <div className="mb-10 sm:mb-12">
-            <SectionBadge label="Pilar Layanan Utama" />
             <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl text-on-surface font-bold tracking-tight">
               Solusi Nyata Sesuai Skala Bisnis Anda
             </h2>
@@ -230,7 +229,6 @@ export default function LayananPage() {
       <section id="paket-kerja" className="max-w-container mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 scroll-mt-24">
         <FadeInView>
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-            <SectionBadge label="Transparansi Kontrak & Ketentuan" />
             <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl text-on-surface font-bold tracking-tight">
               Pilih Model Kerjasama Sesuai Kebutuhan
             </h2>
@@ -310,7 +308,6 @@ export default function LayananPage() {
       <section className="max-w-container mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16">
         <FadeInView>
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-            <SectionBadge label="Jaminan Kualitas Zeki Studio" />
             <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl text-on-surface font-bold tracking-tight">
               Ketenangan Pikiran Anda Adalah Prioritas Kami
             </h2>
