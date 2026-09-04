@@ -338,14 +338,14 @@ export default function KontakPage() {
                 </a>
 
                 <a
-                  href="mailto:hello@skyy.dev"
+                  href="mailto:hello@zekistudio.dev"
                   className="flex items-center gap-3 w-full px-5 py-3 rounded-lg bg-surface-container-low border border-surface-dim text-on-surface hover:border-primary/40 transition-all text-sm"
                 >
                   <span className="material-symbols-outlined text-[20px] text-primary">
                     mail
                   </span>
                   <div>
-                    <div className="font-medium">hello@skyy.dev</div>
+                    <div className="font-medium">hello@zekistudio.dev</div>
                     <div className="text-xs text-on-surface-variant">
                       Kirim dokumen brief atau proposal
                     </div>

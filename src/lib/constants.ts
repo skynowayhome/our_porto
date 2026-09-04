@@ -201,7 +201,6 @@ export const caseStudies = [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDFlpK8Gch6x1oKRaOMsf__hHMKqVBTelHNFXiVnsNr_S1wecPeJqbcTTnRsxiPijmVCV5IuHWecseXIGE9Sp73QEc1bavP3fzYHd7LoauofjoqEkuEbfm1I5ULTWzHcGed-QrZa7qmOtCO9aY7tvmoKKqUarz5xSwZBh1b6KBhkV6aLyGtmMezXj2v96zE5b2n1cjdRKp-K7tHL6IUGsmdrfusEj8coRK8mPynRg3_DfkdJZWxJOGq",
     imageOverlay: {
       text: "Auto-Sync Antrean Pesanan Aktif",
-      status: "Status: Lancar 100%",
     },
     footerLabel: "Teruji di Lingkungan Produksi",
     colorAccent: "primary" as const,
@@ -547,5 +546,4 @@ export const portfolioFilters = [
 ] as const;
 
 // ===== Logo Image =====
-export const logoImage =
-  "https://lh3.googleusercontent.com/aida/AEtjO1VZoYeGDsaWWx-emCnKbMMbb2BH3IRWg_iMDTPMuTc-G1VqAoPpFq9qKmbMu1AX4AaC86TF15o3menSb0HP61y-rGQMPWTdOW-yz-q1l6cqCpCviQTEDxrxCear9zyRZOL5RTIZchzzPRQZS4TT0WVGOsLdsOL62Ak3fCNO2beLq5vf7GNpAtn3jwi6m93oZ-VjlUGVoZgpIW6y0sfKdUkzSXLe05ldkKNZPo0opgJp6fBeq-NMWzLXZg";
+export const logoImage = "/Logo.webp?v=2";

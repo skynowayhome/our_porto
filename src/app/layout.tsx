@@ -3,15 +3,17 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AmbientBackground } from "@/components/ui/AmbientBackground";
+import { SmoothScroll } from "@/components/ui/SmoothScroll";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 export const metadata: Metadata = {
   title: {
     default:
-      "SKYY.DEV — Studio Pembuatan Website & Aplikasi Bisnis Modern",
-    template: "%s | SKYY.DEV",
+      "Zeki Studio — Studio Pembuatan Website & Aplikasi Bisnis Modern",
+    template: "%s | Zeki Studio",
   },
   description:
-    "Bikin website & aplikasi bisnis jadi cepat, menawan, dan siap dipakai jualan. Dikerjakan langsung oleh 2 insinyur senior — tanpa perantara, tanpa tim lepas. Studio rekayasa perangkat lunak Skyy & Partner.",
+    "Bikin website & aplikasi bisnis jadi cepat, menawan, dan siap dipakai jualan. Dikerjakan langsung oleh 2 insinyur senior — tanpa perantara, tanpa tim lepas. Studio rekayasa perangkat lunak Zeki Studio.",
   keywords: [
     "jasa pembuatan website",
     "jasa pembuatan aplikasi",
@@ -19,15 +21,15 @@ export const metadata: Metadata = {
     "aplikasi bisnis",
     "Next.js developer",
     "Flutter developer",
-    "skyy.dev",
+    "zekistudio.dev",
   ],
-  authors: [{ name: "Skyy & Partner Studio" }],
+  authors: [{ name: "Zeki Studio" }],
   openGraph: {
-    title: "SKYY.DEV — Studio Pembuatan Website & Aplikasi Bisnis Modern",
+    title: "Zeki Studio — Studio Pembuatan Website & Aplikasi Bisnis Modern",
     description:
       "Dikerjakan langsung oleh pembuatnya, bukan dilempar tim lepas. Studio rekayasa perangkat lunak modern oleh dua insinyur senior.",
-    url: "https://skyy.dev",
-    siteName: "SKYY.DEV",
+    url: "https://zekistudio.dev",
+    siteName: "Zeki Studio",
     type: "website",
     locale: "id_ID",
   },
@@ -37,15 +39,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="id" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-background text-on-surface font-body relative overflow-x-hidden">
-        <AmbientBackground />
-        <Header />
-        <main className="w-full pt-20 flex-1">{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <ScrollProgress />
+          <AmbientBackground />
+          <Header />
+          <main className="w-full pt-20 flex-1">{children}</main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );
 }
+

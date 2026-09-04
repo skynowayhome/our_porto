@@ -130,11 +130,6 @@ export default function LayananPage() {
               "https://lh3.googleusercontent.com/aida-public/AB6AXuAB7X5kLX3z8gXXYEgp9IjT2dbW38j8oUl91Y-sOnUBBpYm3cxurGUYpBIhxoq2m2-YSuSKJnmTB7XfA3nDRkz8yPPNfGXzFKw_bXfqOYJQlRq_zz1BfvFiGIZfVAPpNlpM0i-UL3oYOnlWAj_NvOiJ7NjPbDTxAijWIZkWAjOHNbbfA6OlBpnPP3xB9GqFMw6F2KXBGFj_hKFiSSEOzDpHqWg-w0VXEEI0lxFB0j7dxYaFVqhWhrz",
               "https://lh3.googleusercontent.com/aida-public/AB6AXuAB7X5kLX3z8gXXYEgp9IjT2dbW38j8oUl91Y-sOnUBBpYm3cxurGUYpBIhxoq2m2-YSuSKJnmTB7XfA3nDRkz8yPPNfGXzFKw_bXfqOYJQlRq_zz1BfvFiGIZfVAPpNlpM0i-UL3oYOnlWAj_NvOiJ7NjPbDTxAijWIZkWAjOHNbbfA6OlBpnPP3xB9GqFMw6F2KXBGFj_hKFiSSEOzDpHqWg-w0VXEEI0lxFB0j7dxYaFVqhWhrz",
             ];
-            const iconBgMap: Record<string, string> = {
-              primary: "bg-primary-fixed text-primary",
-              secondary: "bg-secondary-fixed text-secondary",
-              tertiary: "bg-tertiary-fixed text-tertiary",
-            };
 
             return (
               <FadeInView key={service.id} delay={0.1}>
@@ -143,7 +138,7 @@ export default function LayananPage() {
                     <div className={`lg:col-span-7 ${isReversed ? "lg:order-2" : ""}`}>
                       <div className="flex items-center gap-3 mb-4">
                         <span className={`px-3 py-1 rounded-full text-xs font-semibold ${service.colorAccent === "primary" ? "bg-primary-fixed text-primary" : service.colorAccent === "secondary" ? "bg-secondary-fixed text-secondary" : "bg-tertiary-fixed text-tertiary"}`}>
-                          {service.number} // {service.tag}
+                          {`${service.number} // ${service.tag}`}
                         </span>
                         <span className="text-xs text-on-surface-variant font-medium">
                           {service.colorAccent === "secondary" ? "Bisa Tanpa Internet" : service.colorAccent === "tertiary" ? "Tinggi Akurasi" : "Super Cepat"}
@@ -291,7 +286,7 @@ export default function LayananPage() {
       <section className="max-w-container mx-auto px-5 sm:px-8 py-16">
         <FadeInView>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <SectionBadge label="Jaminan Kualitas Skyy.Dev" />
+            <SectionBadge label="Jaminan Kualitas Zeki Studio" />
             <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl text-on-surface font-bold tracking-tight">
               Ketenangan Pikiran Anda Adalah Prioritas Kami
             </h2>
@@ -355,7 +350,7 @@ export default function LayananPage() {
               </div>
               <div>
                 <div className="font-headline text-sm text-on-surface font-bold">
-                  Prinsip Kami, Skyy & Rekan
+                  Prinsip Kami, Zeki Studio
                 </div>
                 <span className="inline-flex items-center gap-1 text-xs text-emerald-600 font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />

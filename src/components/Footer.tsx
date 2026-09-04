@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { logoImage } from "@/lib/constants";
+import { IconCode, IconBadge, IconMail } from "@/components/ui/Icons";
 
 export function Footer() {
   return (
@@ -8,15 +9,15 @@ export function Footer() {
         <div className="flex flex-col lg:flex-row items-start justify-between gap-10">
           {/* Brand & Tagline */}
           <div className="max-w-sm">
-            <Link href="/" className="flex items-center gap-2.5 mb-4 group">
+            <Link href="/" className="flex items-center gap-1.5 sm:gap-2 mb-4 group">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                alt="Skyy Dev Studio Logo"
-                className="h-8 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
+                alt="Zeki Studio Logo"
+                className="h-7 sm:h-8 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
                 src={logoImage}
               />
               <span className="font-headline text-xl tracking-tight font-bold">
-                SKYY<span className="text-inverse-primary">.DEV</span>
+                Zeki<span className="text-inverse-primary"> Studio</span>
               </span>
             </Link>
             <p className="text-sm text-inverse-on-surface/70 leading-relaxed">
@@ -58,18 +59,18 @@ export function Footer() {
               {[
                 {
                   label: "GitHub",
-                  icon: "code",
+                  IconComponent: IconCode,
                   href: "https://github.com",
                 },
                 {
                   label: "LinkedIn",
-                  icon: "badge",
+                  IconComponent: IconBadge,
                   href: "https://linkedin.com",
                 },
                 {
                   label: "Email",
-                  icon: "mail",
-                  href: "mailto:hello@skyy.dev",
+                  IconComponent: IconMail,
+                  href: "mailto:hello@zekistudio.dev",
                 },
               ].map((social) => (
                 <a
@@ -79,9 +80,7 @@ export function Footer() {
                   rel="noreferrer"
                   className="px-3 py-2 rounded-lg bg-inverse-on-surface/10 border border-inverse-on-surface/15 text-inverse-on-surface/80 text-xs font-medium hover:bg-inverse-primary/20 hover:text-inverse-primary hover:border-inverse-primary/30 transition-all flex items-center gap-1.5"
                 >
-                  <span className="material-symbols-outlined text-[16px]">
-                    {social.icon}
-                  </span>
+                  <social.IconComponent size={16} />
                   {social.label}
                 </a>
               ))}
@@ -92,16 +91,16 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-10 pt-6 border-t border-inverse-on-surface/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-inverse-on-surface/50">
-            © {new Date().getFullYear()} Skyy & Partner Studio. Seluruh hak
+            © {new Date().getFullYear()} Zeki Studio. Seluruh hak
             cipta dilindungi.
           </p>
-          <div className="flex items-center gap-2 text-xs text-inverse-on-surface/50">
+          {/* <div className="flex items-center gap-2 text-xs text-inverse-on-surface/50">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
             <span>Layanan Konsultasi Online Aktif</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

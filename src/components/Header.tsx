@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { navLinks, teamProfiles, logoImage } from "@/lib/constants";
+import { navLinks, logoImage } from "@/lib/constants";
+import { IconChat, IconMenu, IconClose } from "@/components/ui/Icons";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,21 +16,21 @@ export function Header() {
         <div className="flex items-center gap-4">
           <Link
             href="/"
-            className="flex items-center gap-2.5 group"
+            className="flex items-center gap-1.5 sm:gap-2 group"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              alt="Skyy Dev Studio Logo"
-              className="h-9 w-auto object-contain transition-transform group-hover:scale-105"
+              alt="Zeki Studio Logo"
+              className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105"
               src={logoImage}
             />
             <span className="font-headline text-xl sm:text-2xl tracking-tight text-on-surface font-bold">
-              SKYY<span className="text-primary font-bold">.DEV</span>
+              Zeki<span className="text-primary font-bold"> Studio</span>
             </span>
           </Link>
 
           {/* Availability Badge */}
-          <div className="hidden xl:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-surface-dim text-tertiary text-xs font-semibold shadow-sm">
+          {/* <div className="hidden xl:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-surface-dim text-tertiary text-xs font-semibold shadow-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
@@ -37,7 +38,7 @@ export function Header() {
             <span className="font-label">
               Buka Slot Project Baru (Q2 / Q3)
             </span>
-          </div>
+          </div> */}
         </div>
 
         {/* Desktop Nav Links */}
@@ -60,28 +61,16 @@ export function Header() {
             className="hidden sm:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-on-primary font-headline font-semibold text-sm shadow-[0_2px_12px_rgba(39,94,149,0.22)] hover:bg-[#1f4e7d] hover:shadow-[0_4px_18px_rgba(39,94,149,0.3)] active:scale-95 transition-all duration-200"
           >
             <span>Konsultasi Gratis</span>
-            <span className="material-symbols-outlined text-[18px]">chat</span>
-          </Link>
-
-          <Link href="/tim" className="group block relative">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              alt="Skyy Profile"
-              className="w-9 h-9 rounded-full object-cover ring-2 ring-primary/40 group-hover:ring-primary transition-all shadow-sm"
-              src={teamProfiles.skyy.image}
-            />
-            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-surface-container-lowest" />
+            <IconChat size={18} />
           </Link>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors text-on-surface flex items-center justify-center"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            <span className="material-symbols-outlined text-[24px] text-on-surface">
-              {mobileMenuOpen ? "close" : "menu"}
-            </span>
+            {mobileMenuOpen ? <IconClose size={24} /> : <IconMenu size={24} />}
           </button>
         </div>
       </div>
@@ -112,9 +101,7 @@ export function Header() {
                 className="mt-3 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-primary text-on-primary font-headline font-semibold text-sm shadow-[0_2px_12px_rgba(39,94,149,0.22)]"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <span className="material-symbols-outlined text-[18px]">
-                  chat
-                </span>
+                <IconChat size={18} />
                 <span>Mulai Konsultasi Gratis</span>
               </Link>
             </nav>
