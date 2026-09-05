@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FadeInView } from "@/components/ui/FadeInView";
 import { IconArrowDown, IconVerified } from "@/components/ui/Icons";
+import { Logo3DCard } from "@/components/ui/Logo3DCard";
 
 export function ServicesHero() {
   return (
@@ -32,9 +33,10 @@ export function ServicesHero() {
           <FadeInView delay={0.2}>
             <p className="text-on-surface-variant text-sm sm:text-base leading-relaxed mb-8 max-w-xl">
               Tidak ada bahasa teknis yang membingungkan. Kami merancang
-              website bisnis, aplikasi smartphone, dan infrastruktur sistem
-              yang tangguh mendatangkan hasil nyata: cepat dibuka, bebas
-              macet, dan siap mendorong penjualan bisnis Anda.
+              landing page, aplikasi web dashboard, aplikasi mobile, dan
+              audit keamanan DevSecOps yang tangguh mendatangkan hasil
+              nyata cepat dibuka, bebas macet, dan siap mendorong
+              penjualan bisnis Anda.
             </p>
           </FadeInView>
           <FadeInView delay={0.3}>
@@ -56,6 +58,13 @@ export function ServicesHero() {
           </FadeInView>
         </div>
 
+        <div className="lg:col-span-5 w-full">
+          <FadeInView delay={0.25} direction="left" scale={true}>
+            <div className="h-[300px] sm:h-[360px]">
+              <Logo3DCard />
+            </div>
+          </FadeInView>
+        </div>
       </div>
     </section>
   );

@@ -4,11 +4,25 @@ import { services } from "@/data";
 import { IconCheckCircle } from "@/components/ui/Icons";
 
 const serviceImages = [
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDFlpK8Gch6x1oKRaOMsf__hHMKqVBTelHNFXiVnsNr_S1wecPeJqbcTTnRsxiPijmVCV5IuHWecseXIGE9Sp73QEc1bavP3fzYHd7LoauofjoqEkuEbfm1I5ULTWzHcGed-QrZa7qmOtCO9aY7tvmoKKqUarz5xSwZBh1b6KBhkV6aLyGtmMezXj2v96zE5b2n1cjdRKp-K7tHL6IUGsmdrfusEj8coRK8mPynRg3_DfkdJZWxJOGq",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuC8pUwkKxF3g_--e35VghOwxYUsJmavGBzDd1mFSg0s4P11wk6w2sKqd9RmL8vUTbmx_C4t_MxnUEMOvY_OQvRrlGBWSTvFceJY5VEVPygfMJNSAzMlQocxxTWSgn8LiuKefh4pkCOt2pw1n65QF235JfztpwY4KcIpJ0Tn1yP4Bdiik59Nm_KeVlnKPGK0P02Z8OU17exfGoORJ0V0_8LaX7mAn1yIMq4gK-lw3DFqcaEGV-aYzHAH",
-  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+  "/artacom-landingpage.png",
+  "/artacom-webapps.png",
+  "/hrms-mobile-apps.jpg",
+  "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
 ];
+
+const serviceBadgeLabels: Record<string, string> = {
+  "web-landingpage": "Cepat & SEO Friendly",
+  "web-dashboard": "Full-Stack & Scalable",
+  "mobile-apps": "Offline-First",
+  "audit-devsecops": "Standar Keamanan OWASP",
+};
+
+const serviceEstimations: Record<string, string> = {
+  "web-landingpage": "1 - 2 Minggu",
+  "web-dashboard": "3 - 6 Minggu",
+  "mobile-apps": "4 - 8 Minggu",
+  "audit-devsecops": "1 - 2 Minggu",
+};
 
 export function ServicesPillars() {
   return (
@@ -39,7 +53,7 @@ export function ServicesPillars() {
                         {`${service.number} // ${service.tag}`}
                       </span>
                       <span className="text-xs text-on-surface-variant font-medium">
-                        {service.colorAccent === "secondary" ? "Bisa Tanpa Internet" : service.colorAccent === "tertiary" ? "Tinggi Akurasi" : "Super Cepat & Stabil"}
+                        {serviceBadgeLabels[service.id] || "Solusi Handal"}
                       </span>
                     </div>
                     <h3 className="font-headline text-xl sm:text-2xl text-on-surface font-bold mb-3">
@@ -74,14 +88,14 @@ export function ServicesPillars() {
                     <div className="rounded-xl overflow-hidden bg-surface-container-high border border-surface-dim shadow-inner relative group">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        className="w-full h-60 sm:h-72 object-cover group-hover:scale-105 transition-transform duration-700"
+                        className="w-full h-60 sm:h-72 object-cover object-top group-hover:scale-105 transition-transform duration-700"
                         src={currentImage}
                         alt={service.title}
                         loading="lazy"
                       />
                       <div className="absolute bottom-3 left-3 right-3 p-2.5 rounded-lg bg-surface-container-lowest/90 backdrop-blur-md border border-surface-dim text-xs shadow-sm flex items-center justify-between">
                         <span className={`text-${service.colorAccent} font-semibold`}>
-                          {service.colorAccent === "secondary" ? "3 - 4 Minggu" : service.colorAccent === "tertiary" ? "1 - 3 Minggu" : "2 - 4 Minggu"}
+                          {serviceEstimations[service.id] || "2 - 4 Minggu"}
                         </span>
                         <span className="text-on-surface-variant">Estimasi pengerjaan</span>
                       </div>

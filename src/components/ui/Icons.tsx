@@ -228,4 +228,5 @@ export const iconMap: Record<string, React.FC<IconProps>> = {
   gavel: IconGavel,
   lock: IconLock,
   monetization_on: IconCoins,
+  shield: IconShield,
 };

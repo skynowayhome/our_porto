@@ -79,14 +79,14 @@ export function ServicesGuarantees() {
               <div className="font-headline text-sm text-on-surface font-bold">
                 Prinsip Kami, Zeki Studio
               </div>
-              <span className="inline-flex items-center gap-1 text-xs text-emerald-600 font-medium">
+              {/* <span className="inline-flex items-center gap-1 text-xs text-emerald-600 font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 konsisten dipraktikkan
-              </span>
+              </span> */}
             </div>
           </div>
           <p className="text-sm text-on-surface leading-relaxed italic flex-1">
-            &ldquo;Kami tidak pernah melempar proyek Anda ke pihak ketiga. Setiap baris kode ditulis dan dipantau kualitasnya langsung oleh kami.&rdquo;
+            &ldquo;Transparansi, presisi teknis, dan tanggung jawab penuh adalah pondasi kami. Setiap solusi digital dibangun dengan dedikasi tinggi langsung dari tangan kami untuk kesuksesan bisnis Anda.&rdquo;
           </p>
           <Link
             href="/tim"
