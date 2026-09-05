@@ -127,7 +127,8 @@ export function Hero3DCanvas() {
 
     // 5. Animation Loop
     let animationFrameId: number;
-    let clock = new THREE.Clock();
+    const clock = new THREE.Clock();
+
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
