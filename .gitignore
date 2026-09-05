@@ -41,3 +41,11 @@ yarn-error.log*
 next-env.d.ts
 .agents
 skills-lock.json
+
+# agent rules
+AGENTS.md
+CLAUDE.md
+
+# designs & stitch
+stitch_dual_developer_portfolio_platform/
+

@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zeki Studio — Digital Engineering & Portfolio Platform
 
-## Getting Started
+Platform resmi dan portfolio showcase untuk **Zeki Studio** — studio rekayasa perangkat lunak modern yang berfokus pada pembuatan website bisnis, dashboard operasional, serta aplikasi mobile cross-platform performa tinggi.
 
-First, run the development server:
+---
+
+## 🚀 Tech Stack
+
+- **Framework**: [Next.js 16 (App Router)](https://nextjs.org/)
+- **UI Library**: [React 19](https://react.dev/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations & Interaction**: [Framer Motion](https://www.framer.com/motion/), [Lenis Smooth Scroll](https://lenis.darkroom.engineering/)
+- **Type System**: [TypeScript 5](https://www.typescriptlang.org/)
+- **Icons**: Custom Material Symbols SVG components
+
+---
+
+## 🏛️ Arsitektur Proyek (Enterprise Feature-Driven Architecture)
+
+Struktur kode dirancang dengan pendekatan **Feature-Based Architecture** dan **Separation of Concerns (SoC)** agar modular, bersih, dan mudah dikembangkan dalam jangka panjang:
+
+```text
+src/
+├── app/                                # Next.js App Router (Halaman & Routing tipis)
+│   ├── layout.tsx                      # Root layout, font, smooth scroll, providers
+│   ├── globals.css                     # Definisi tema, font styling & Tailwind utilities
+│   ├── page.tsx                        # Rute Beranda (delegasi ke <HomeView />)
+│   ├── tim/page.tsx                    # Rute Profil Tim (delegasi ke <TeamView />)
+│   ├── layanan/page.tsx                # Rute Katalog Layanan (delegasi ke <ServicesView />)
+│   ├── portofolio/page.tsx             # Rute Karya & Studi Kasus (delegasi ke <PortfolioView />)
+│   └── kontak/page.tsx                 # Rute Konsultasi & Form (delegasi ke <ContactView />)
+│
+├── features/                           # Modul Domain & Fitur Terisolasi
+│   ├── home/                           # Fitur Halaman Beranda
+│   │   ├── HomeView.tsx                # Wrapper tampilan utama
+│   │   └── components/                 # HeroSection, TeamTeaser, ServicesTeaser, Showcase, TechStack, HomeCta
+│   ├── tim/                            # Fitur Profil Tim Partner
+│   │   ├── TeamView.tsx
+│   │   └── components/                 # TeamHero, TeamProfiles, TeamCommitments, TeamWorkProcess, TeamCta
+│   ├── portofolio/                     # Fitur Portofolio & Studi Kasus
+│   │   ├── PortfolioView.tsx
+│   │   └── components/                 # PortfolioHero, CaseStudyDetailCard, PortfolioStability, PortfolioCta
+│   ├── layanan/                        # Fitur Layanan & Model Harga
+│   │   ├── ServicesView.tsx
+│   │   └── components/                 # ServicesHero, ServicesPillars, ServicesPricing, ServicesGuarantees, ServicesCta
+│   └── kontak/                         # Fitur Kontak & Estimasi Biaya
+│       ├── ContactView.tsx
+│       └── components/                 # ContactHero, ContactForm, ContactSidebar, ContactFaq
+│
+├── types/                              # Deklarasi Type & Interface TypeScript Terpusat
+│   ├── team.ts                         # Interface profil insinyur, skill, dan badge
+│   ├── service.ts                      # Interface layanan & paket harga
+│   ├── project.ts                      # Interface studi kasus, metrics, dan filter
+│   ├── common.ts                       # Interface FAQ, navigasi, proses kerja, dan komitmen
+│   └── index.ts                        # Barrel export untuk semua types
+│
+├── data/                               # Data Statis & Konten Bisnis Terpisah dari UI
+│   ├── team.ts                         # Data profil Skyy & Aris
+│   ├── services.ts                     # Data layanan & pricing models
+│   ├── projects.ts                     # Data 3 studi kasus unggulan & metrics
+│   ├── faq.ts                          # Pertanyaan umum (FAQ)
+│   ├── navigation.ts                   # Navigasi, kategori kontak, alur kerja, & opsi budget
+│   └── index.ts                        # Barrel export untuk semua data
+│
+├── components/                         # Komponen Reusable Global
+│   ├── layout/                         # Header & Footer
+│   ├── common/                         # SectionBadge, TechBadge, AmbientBackground, ScrollProgress, FadeInView
+│   └── ui/                             # Icons SVG
+│
+└── lib/                                # Utilitas & Bridge Kompatibilitas
+    ├── utils.ts                        # Helper functions (cn / class merger)
+    └── constants.ts                    # Re-export bridge untuk kompatibilitas backward
+```
+
+---
+
+## 🛠️ Panduan Memulai (*Getting Started*)
+
+### 1. Instalasi Dependensi
+
+Pastikan Node.js (versi 18.18+ atau 20+) telah terinstal di lingkungan kerja Anda:
+
+```bash
+npm install
+```
+
+### 2. Menjalankan Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000) pada browser Anda.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Pengecekan Type & Linting
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Validasi Type TypeScript
+npx tsc --noEmit
 
-## Learn More
+# Linting kode
+npm run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 4. Build untuk Lingkungan Produksi
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📄 Lisensi & Kepemilikan
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© Zeki Studio. Seluruh hak cipta dilindungi.
