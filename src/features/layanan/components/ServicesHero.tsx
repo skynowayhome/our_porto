@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FadeInView } from "@/components/ui/FadeInView";
 import { IconArrowDown, IconVerified } from "@/components/ui/Icons";
+import { Logo3DCard } from "@/components/ui/Logo3DCard";
 
 export function ServicesHero() {
   return (
@@ -32,9 +33,10 @@ export function ServicesHero() {
           <FadeInView delay={0.2}>
             <p className="text-on-surface-variant text-sm sm:text-base leading-relaxed mb-8 max-w-xl">
               Tidak ada bahasa teknis yang membingungkan. Kami merancang
-              website bisnis, aplikasi smartphone, dan infrastruktur sistem
-              yang tangguh mendatangkan hasil nyata: cepat dibuka, bebas
-              macet, dan siap mendorong penjualan bisnis Anda.
+              landing page, aplikasi web dashboard, aplikasi mobile, dan
+              audit keamanan DevSecOps yang tangguh mendatangkan hasil
+              nyata cepat dibuka, bebas macet, dan siap mendorong
+              penjualan bisnis Anda.
             </p>
           </FadeInView>
           <FadeInView delay={0.3}>
@@ -58,37 +60,8 @@ export function ServicesHero() {
 
         <div className="lg:col-span-5 w-full">
           <FadeInView delay={0.25} direction="left" scale={true}>
-            <div className="rounded-xl bg-surface-container-lowest border border-surface-dim p-5 sm:p-6 shadow-sm">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary text-xs font-semibold">
-                  Standar Mutu Rekayasa
-                </span>
-                <span className="text-xs text-on-surface-variant">Benchmark Teknis</span>
-              </div>
-              <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4">
-                <div className="text-center p-3.5 sm:p-4 rounded-lg bg-surface-container-low border border-surface-dim">
-                  <div className="font-headline text-2xl sm:text-3xl font-bold text-primary">
-                    99.9%
-                  </div>
-                  <div className="text-xs text-on-surface-variant mt-1">
-                    Jaminan Server Stabil
-                  </div>
-                </div>
-                <div className="text-center p-3.5 sm:p-4 rounded-lg bg-surface-container-low border border-surface-dim">
-                  <div className="font-headline text-2xl sm:text-3xl font-bold text-primary">
-                    &lt;1 Detik
-                  </div>
-                  <div className="text-xs text-on-surface-variant mt-1">
-                    Muncul Muat di Layar
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 text-xs text-on-surface-variant bg-surface-container-low/70 p-2.5 rounded-lg border border-surface-dim">
-                <IconVerified size={16} className="text-emerald-600 shrink-0" />
-                <span>
-                  100% Hak Milik Klien • Tanpa Biaya Tersembunyi!
-                </span>
-              </div>
+            <div className="h-[300px] sm:h-[360px]">
+              <Logo3DCard />
             </div>
           </FadeInView>
         </div>

@@ -127,12 +127,12 @@ export function Hero3DCanvas() {
 
     // 5. Animation Loop
     let animationFrameId: number;
-    const clock = new THREE.Clock();
-
+    const timer = new THREE.Timer();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      const elapsedTime = clock.getElapsedTime();
+      timer.update();
+      const elapsedTime = timer.getElapsed();
 
       // Autonomous gentle idle rotation
       icoMesh.rotation.y = elapsedTime * 0.35;
