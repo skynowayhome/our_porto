@@ -46,3 +46,15 @@ export interface PortfolioFilterItem {
   id: string;
   label: string;
 }
+
+export interface SliderProject {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  techStack: readonly string[];
+  category: string;
+  image: string;
+  accentGradient: string;
+  icon: string;
+}

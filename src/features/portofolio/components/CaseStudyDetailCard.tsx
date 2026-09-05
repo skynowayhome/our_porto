@@ -1,6 +1,7 @@
 import { FadeInView } from "@/components/ui/FadeInView";
 import { TechBadge } from "@/components/ui/TechBadge";
 import { CaseStudy } from "@/types";
+import { Flame, CheckCircle2 } from "lucide-react";
 
 interface CaseStudyDetailCardProps {
   caseStudy: CaseStudy;
@@ -76,9 +77,10 @@ export function CaseStudyDetailCard({
               <div className="space-y-4 mb-6">
                 <div className="p-4 rounded-lg bg-surface-container-low border border-surface-dim">
                   <div
-                    className={`font-headline text-xs font-bold text-${cs.colorAccent} uppercase tracking-wider mb-2`}
+                    className={`font-headline text-xs font-bold text-${cs.colorAccent} uppercase tracking-wider mb-2 flex items-center gap-1.5`}
                   >
-                    🔥 Tantangan yang Dihadapi Sebelumnya
+                    <Flame className="w-4 h-4" />
+                    Tantangan yang Dihadapi Sebelumnya
                   </div>
                   <p className="text-sm text-on-surface-variant">
                     {cs.challenge}
@@ -86,9 +88,10 @@ export function CaseStudyDetailCard({
                 </div>
                 <div className="p-4 rounded-lg bg-surface-container-low border border-surface-dim">
                   <div
-                    className={`font-headline text-xs font-bold text-${cs.colorAccent} uppercase tracking-wider mb-2`}
+                    className={`font-headline text-xs font-bold text-${cs.colorAccent} uppercase tracking-wider mb-2 flex items-center gap-1.5`}
                   >
-                    ✅ Solusi Rekayasa yang Kami Terapkan
+                    <CheckCircle2 className="w-4 h-4" />
+                    Solusi Rekayasa yang Kami Terapkan
                   </div>
                   <p className="text-sm text-on-surface-variant">
                     {cs.solution}

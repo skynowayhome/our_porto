@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FadeInView } from "@/components/ui/FadeInView";
 import { SectionBadge } from "@/components/ui/SectionBadge";
+import { ArrowRight, BadgeCheck, Mic, Calculator } from "lucide-react";
 
 export function PortfolioCta() {
   return (
@@ -24,37 +25,27 @@ export function PortfolioCta() {
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-lg bg-white text-primary font-headline font-semibold text-sm shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all duration-200"
               >
                 <span>Mulai Diskusi Dengan Tim Kami</span>
-                <span className="material-symbols-outlined text-[18px]">
-                  arrow_forward
-                </span>
+                <ArrowRight className="w-[18px] h-[18px]" />
               </Link>
               <Link
                 href="/layanan"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-white/15 hover:bg-white/25 text-white font-headline font-semibold text-sm border border-white/20 transition-all duration-200"
               >
                 <span>Pelajari Paket Layanan</span>
-                <span className="material-symbols-outlined text-[18px]">
-                  arrow_forward
-                </span>
+                <ArrowRight className="w-[18px] h-[18px]" />
               </Link>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-6 mt-8 text-white/60 text-xs">
               <span className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[16px]">
-                  verified
-                </span>
+                <BadgeCheck className="w-[16px] h-[16px]" />
                 Perjanjian Kerahasiaan (NDA Ready)
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[16px]">
-                  record_voice_over
-                </span>
+                <Mic className="w-[16px] h-[16px]" />
                 Bicara Langsung dengan Pembuat Sistem
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[16px]">
-                  calculate
-                </span>
+                <Calculator className="w-[16px] h-[16px]" />
                 Estimasi Waktu & Biaya Transparan
               </span>
             </div>

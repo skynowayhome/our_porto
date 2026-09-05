@@ -2,6 +2,7 @@ import {
   CaseStudy,
   PortfolioMetricItem,
   PortfolioFilterItem,
+  SliderProject,
 } from "@/types";
 import { teamProfiles } from "./team";
 
@@ -154,4 +155,79 @@ export const portfolioFilters: readonly PortfolioFilterItem[] = [
   { id: "restoran", label: "Restoran & F&B" },
   { id: "ritel", label: "Ritel & Minimarket" },
   { id: "algoritma", label: "Navigasi & Algoritma Kota" },
+];
+
+export const sliderProjects: readonly SliderProject[] = [
+  {
+    id: "tourism-cms",
+    title: "Website Pariwisata (CMS)",
+    subtitle: "Content Management System",
+    description:
+      "Platform content management untuk mengelola destinasi wisata, paket tour, galeri foto, dan informasi booking secara dinamis. Dilengkapi panel admin intuitif untuk update konten tanpa sentuh kode.",
+    techStack: ["Next.js", "Strapi CMS", "PostgreSQL", "Cloudinary"],
+    category: "Content Management",
+    image: "",
+    accentGradient: "bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-600",
+    icon: "travel_explore",
+  },
+  {
+    id: "pizza-ordering",
+    title: "Sistem Pemesanan Pizza Online",
+    subtitle: "Real-time Food Ordering",
+    description:
+      "Aplikasi web pemesanan pizza real-time dengan fitur customize topping, tracking status pesanan live, dan integrasi payment gateway. Dashboard dapur memantau antrean pesanan otomatis.",
+    techStack: ["CodeIgniter 4", "MySQL", "TailwindCSS", "Docker"],
+    category: "E-Commerce & F&B",
+    image: "",
+    accentGradient: "bg-gradient-to-br from-orange-400 via-red-500 to-rose-600",
+    icon: "local_pizza",
+  },
+  {
+    id: "finance-monitoring",
+    title: "Sistem Monitoring Finance",
+    subtitle: "Financial Dashboard & Analytics",
+    description:
+      "Dashboard monitoring keuangan real-time dengan visualisasi data interaktif, laporan otomatis terjadwal, dan notifikasi anomali transaksi. Membantu pengambilan keputusan bisnis berbasis data.",
+    techStack: ["React", "Node.js", "Chart.js", "MongoDB"],
+    category: "Fintech & Dashboard",
+    image: "",
+    accentGradient: "bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-600",
+    icon: "monitoring",
+  },
+  {
+    id: "hrms-attendance",
+    title: "Web Apps HRMS Absensi",
+    subtitle: "Human Resource Management System",
+    description:
+      "Aplikasi manajemen SDM lengkap dengan fitur absensi berbasis GPS, pengajuan cuti online, slip gaji digital, dan rekap kehadiran otomatis. Terintegrasi perhitungan lembur dan BPJS.",
+    techStack: ["Laravel", "Vue.js", "MySQL", "PWA"],
+    category: "Enterprise & HR",
+    image: "",
+    accentGradient: "bg-gradient-to-br from-violet-500 via-purple-500 to-fuchsia-600",
+    icon: "badge",
+  },
+  {
+    id: "isp-billing",
+    title: "Sistem Billing Invoices ISP",
+    subtitle: "Automated ISP Billing Platform",
+    description:
+      "Sistem penagihan dan invoicing otomatis untuk Internet Service Provider dengan manajemen pelanggan, reminder tagihan, dan laporan pendapatan bulanan. Terintegrasi dengan router Mikrotik.",
+    techStack: ["PHP", "PostgreSQL", "PDF Generator", "REST API"],
+    category: "Telekomunikasi & Billing",
+    image: "",
+    accentGradient: "bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-500",
+    icon: "receipt_long",
+  },
+  {
+    id: "delivery-warehouse",
+    title: "Sistem Delivery & Warehouse",
+    subtitle: "Logistics Management Platform",
+    description:
+      "Platform manajemen gudang dan pengiriman terintegrasi dengan tracking armada real-time, optimasi rute delivery, inventory management, dan laporan performa pengiriman harian.",
+    techStack: ["Next.js", "Express.js", "MongoDB", "Socket.io"],
+    category: "Logistik & Supply Chain",
+    image: "",
+    accentGradient: "bg-gradient-to-br from-amber-400 via-orange-500 to-red-500",
+    icon: "local_shipping",
+  },
 ];
