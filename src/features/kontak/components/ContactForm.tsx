@@ -3,6 +3,28 @@
 import { useState } from "react";
 import { FadeInView } from "@/components/ui/FadeInView";
 import { contactCategories, budgetOptions } from "@/data";
+import { User, MessageCircle, Link, Send, ArrowRight, ShieldCheck, Globe, Smartphone, Wrench, CloudCog, Store, Rocket, Network, Building2, LayoutDashboard, Shield } from "lucide-react";
+
+const getCategoryIcon = (iconName: string) => {
+  switch (iconName) {
+    case "web": return <Globe className="w-4 h-4 text-primary" />;
+    case "smartphone": return <Smartphone className="w-4 h-4 text-primary" />;
+    case "dashboard": return <LayoutDashboard className="w-4 h-4 text-primary" />;
+    case "shield": return <Shield className="w-4 h-4 text-primary" />;
+    default: return <Globe className="w-4 h-4 text-primary" />;
+  }
+};
+
+const getBudgetIcon = (iconName: string, active: boolean) => {
+  const className = `w-6 h-6 mb-2 ${active ? 'text-primary' : 'text-on-surface-variant'}`;
+  switch (iconName) {
+    case "storefront": return <Store className={className} />;
+    case "rocket_launch": return <Rocket className={className} />;
+    case "smartphone": return <Smartphone className={className} />;
+    case "shield": return <Shield className={className} />;
+    default: return <Store className={className} />;
+  }
+};
 
 export function ContactForm() {
   const [selectedCategory, setSelectedCategory] = useState(0);
@@ -18,9 +40,7 @@ export function ContactForm() {
               Form Diskusi & Rencana Proyek
             </h2>
           </div>
-          <span className="text-xs text-on-surface-variant font-medium">
-            Proses Cepat 2 Menit
-          </span>
+
         </div>
 
         <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
@@ -40,9 +60,7 @@ export function ContactForm() {
                 placeholder="Contoh: Rian Pratama / Kopi Kawan Studio"
                 className="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-surface-dim text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
               />
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-[18px] text-on-surface-variant/40">
-                person
-              </span>
+              <User className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-on-surface-variant/40" />
             </div>
           </div>
 
@@ -62,9 +80,7 @@ export function ContactForm() {
                 placeholder="Contoh: 0812-3456-7890 atau email@domain.com"
                 className="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-surface-dim text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
               />
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-[18px] text-on-surface-variant/40">
-                chat
-              </span>
+              <MessageCircle className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-on-surface-variant/40" />
             </div>
             <p className="text-xs text-on-surface-variant mt-1.5">
               Kami menjamin nomor WhatsApp & Email Anda bebas dari spam
@@ -109,9 +125,7 @@ export function ContactForm() {
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5 mb-0.5">
-                      <span className="material-symbols-outlined text-[16px] text-primary">
-                        {cat.icon}
-                      </span>
+                      {getCategoryIcon(cat.icon)}
                       <span className="text-sm font-medium text-on-surface">
                         {cat.label}
                       </span>
@@ -129,10 +143,10 @@ export function ContactForm() {
           <div>
             <div className="flex items-center justify-between mb-3">
               <label className="text-sm font-medium text-on-surface">
-                Estimasi Alokasi Anggaran
+                Pilihan Paket Layanan
               </label>
               <span className="text-xs text-on-surface-variant">
-                Bisa disesuaikan bertahap
+                Sesuai dengan skala bisnis Anda
               </span>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -141,12 +155,13 @@ export function ContactForm() {
                   key={option.label}
                   type="button"
                   onClick={() => setSelectedBudget(index)}
-                  className={`p-3 rounded-lg border text-center transition-all ${
+                  className={`flex flex-col items-center p-3 rounded-lg border text-center transition-all ${
                     selectedBudget === index
                       ? "bg-primary-fixed/30 border-primary/40 ring-2 ring-primary/20"
                       : "bg-surface-container-low border-surface-dim hover:border-primary/30"
                   }`}
                 >
+                  {option.icon && getBudgetIcon(option.icon, selectedBudget === index)}
                   <div className="font-headline text-sm font-bold text-on-surface mb-0.5">
                     {option.label}
                   </div>
@@ -200,9 +215,7 @@ export function ContactForm() {
                 placeholder="Contoh link Google Drive, Figma, Notion, atau referensi website lain..."
                 className="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-surface-dim text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
               />
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-[18px] text-on-surface-variant/40">
-                link
-              </span>
+              <Link className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-on-surface-variant/40" />
             </div>
           </div>
 
@@ -211,19 +224,13 @@ export function ContactForm() {
             type="submit"
             className="w-full inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-lg bg-primary text-on-primary font-headline font-semibold text-sm tracking-wide shadow-[0_6px_20px_rgba(39,94,149,0.25)] hover:bg-[#1f4e7d] hover:shadow-[0_8px_25px_rgba(39,94,149,0.32)] hover:-translate-y-0.5 active:scale-95 transition-all duration-200"
           >
-            <span className="material-symbols-outlined text-[20px]">
-              send
-            </span>
+            <Send className="w-5 h-5" />
             <span>Kirim Pesan & Dapatkan Rencana Solusi Gratis</span>
-            <span className="material-symbols-outlined text-[18px]">
-              arrow_forward
-            </span>
+            <ArrowRight className="w-4 h-4" />
           </button>
 
           <p className="text-xs text-on-surface-variant text-center flex items-center justify-center gap-1.5">
-            <span className="material-symbols-outlined text-[14px] text-emerald-600">
-              verified_user
-            </span>
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
             Tenang, semua informasi proyek Anda aman. Kami siap tandatangani
             NDA kapan pun dibutuhkan.
           </p>

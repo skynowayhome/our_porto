@@ -17,47 +17,51 @@ export const navLinks: readonly NavLink[] = [
 export const contactCategories: readonly ContactCategory[] = [
   {
     icon: "web",
-    label: "Website / Web App",
-    description: "Landing page elegan, dashboard sistem, toko online, SaaS.",
+    label: "Web & Landing Page",
+    description: "Website Bisnis & Landing Page Profesional.",
+  },
+  {
+    icon: "dashboard",
+    label: "WebApps & Dashboard",
+    description: "Website Bisnis & Dashboard Operasional.",
   },
   {
     icon: "smartphone",
-    label: "Aplikasi Mobile",
-    description: "Aplikasi Android & iOS responsif (Flutter/Cross-platform).",
+    label: "Mobile Apps",
+    description: "Aplikasi Android & iOS (Flutter).",
   },
   {
-    icon: "build",
-    label: "Perbaikan & Optimasi",
-    description: "Website lambat, banyak bug, ingin nambah fitur baru.",
-  },
-  {
-    icon: "cloud_sync",
-    label: "Cloud & Server Infra",
-    description: "Migrasi hosting, VPS kencang, backup otomatis & CI/CD.",
+    icon: "shield",
+    label: "Audit & DevSecOps",
+    description: "Audit Source Code & Keamanan Aplikasi.",
   },
 ];
 
 export const budgetOptions: readonly BudgetOption[] = [
   {
-    label: "< Rp 5 Juta",
-    tag: "Paket Starter",
-    description: "Cocok untuk UMKM, Landing Page & Portofolio.",
+    label: "Solusi UMKM & Profil",
+    tag: "Konsultasi",
+    description: "Landing Page & Web Profil.",
+    icon: "storefront",
   },
   {
-    label: "Rp 5 - 15 Juta",
-    tag: "Paling Populer",
+    label: "MVP Startup & Bisnis",
+    tag: "Paling Diminati",
     popular: true,
-    description: "Ideal untuk MVP Startup, Dashboard Bisnis.",
+    description: "WebApps & Sistem Operasional.",
+    icon: "rocket_launch",
   },
   {
-    label: "Rp 15 - 30 Juta",
-    tag: "Pro Scale",
-    description: "Sistem Kompleks, Full Custom & Integrasi API.",
+    label: "Mobile App Praktis",
+    tag: "Konsultasi",
+    description: "Aplikasi Mobile (Flutter).",
+    icon: "smartphone",
   },
   {
-    label: "> Rp 30 Juta",
-    tag: "Enterprise",
-    description: "Skala Enterprise, Arsitektur Tinggi & SLA.",
+    label: "Solusi Cepat",
+    tag: "Konsultasi",
+    description: "Perbaikan Sistem & Optimasi.",
+    icon: "shield",
   },
 ];
 

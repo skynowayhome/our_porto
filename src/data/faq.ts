@@ -7,6 +7,7 @@ export const faqItems: readonly FaqItem[] = [
     question: "Saya belum punya brief teknis detail, apakah tetap bisa pesan?",
     answer:
       "Tentu saja! Sebagian besar klien kami mulai dari gambaran kasar atau masalah yang ingin diselesaikan. Kami akan membantu merumuskan fitur yang esensial agar anggaran Anda efisien.",
+    icon: "lightbulb",
   },
   {
     number: "02",
@@ -14,6 +15,7 @@ export const faqItems: readonly FaqItem[] = [
     question: "Berapa lama waktu pengerjaan hingga aplikasi siap rilis?",
     answer:
       "Untuk website atau aplikasi versi perdana (MVP), rata-rata 2 hingga 6 minggu. Anda mendapatkan link demo berkala setiap minggu sehingga dapat melihat progres secara langsung.",
+    icon: "schedule",
   },
   {
     number: "03",
@@ -21,5 +23,6 @@ export const faqItems: readonly FaqItem[] = [
     question: "Bagaimana metode pembayaran proyek yang aman?",
     answer:
       "Pembayaran dilakukan bertahap sesuai milestone kemajuan (misal DP 30%, saat versi uji coba 30%, dan pelunasan setelah aplikasi siap jalan). Adil, transparan, dan tidak memberatkan.",
+    icon: "payments",
   },
 ];

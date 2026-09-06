@@ -1,6 +1,16 @@
 import { FadeInView } from "@/components/ui/FadeInView";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 import { faqItems } from "@/data";
+import { Lightbulb, Clock, CreditCard } from "lucide-react";
+
+const getFaqIcon = (iconName: string) => {
+  switch (iconName) {
+    case "lightbulb": return <Lightbulb className="w-4 h-4" />;
+    case "schedule": return <Clock className="w-4 h-4" />;
+    case "payments": return <CreditCard className="w-4 h-4" />;
+    default: return <Lightbulb className="w-4 h-4" />;
+  }
+};
 
 export function ContactFaq() {
   return (
@@ -27,7 +37,11 @@ export function ContactFaq() {
             >
               <div className="flex items-center gap-2 mb-4">
                 <span className="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center text-xs font-bold">
-                  {faq.number}
+                  {faq.icon ? (
+                    getFaqIcon(faq.icon)
+                  ) : (
+                    faq.number
+                  )}
                 </span>
                 <span className="text-xs font-semibold text-primary uppercase tracking-wider font-headline">
                   {faq.category}
