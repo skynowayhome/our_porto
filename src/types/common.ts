@@ -14,6 +14,7 @@ export interface BudgetOption {
   tag: string;
   popular?: boolean;
   description: string;
+  icon?: string;
 }
 
 export interface FaqItem {
@@ -21,6 +22,7 @@ export interface FaqItem {
   category: string;
   question: string;
   answer: string;
+  icon?: string;
 }
 
 export interface WorkProcessStep {

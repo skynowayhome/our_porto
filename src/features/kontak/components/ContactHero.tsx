@@ -30,25 +30,6 @@ export function ContactHero() {
         </p>
       </FadeInView>
 
-      <FadeInView delay={0.3}>
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          {[
-            { icon: "verified", label: "Konsultasi 100% Gratis" },
-            { icon: "lock", label: "Privasi & NDA Terjamin" },
-            { icon: "schedule", label: "Respon Ramah Cepat (< 12 Jam)" },
-          ].map((badge) => (
-            <span
-              key={badge.label}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-lowest border border-surface-dim text-xs font-medium text-on-surface-variant"
-            >
-              <span className="material-symbols-outlined text-[16px] text-primary">
-                {badge.icon}
-              </span>
-              {badge.label}
-            </span>
-          ))}
-        </div>
-      </FadeInView>
     </section>
   );
 }
