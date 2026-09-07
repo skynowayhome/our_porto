@@ -7,51 +7,7 @@ import {
 import { teamProfiles } from "./team";
 
 export const caseStudies: readonly CaseStudy[] = [
-  {
-    id: "pizza-ordering",
-    category: "restoran",
-    categoryLabel: "Web Order Restoran",
-    statusLabel: "Sudah Beroperasi Live",
-    title: "Sistem Pemesanan Pizza Online Cepat & Otomatis",
-    description:
-      "Aplikasi web bagi pelanggan untuk memilih menu, customize topping, dan pesan antar secara mandiri. Dilengkapi dashboard staf dapur untuk memantau status pesanan antrean secara real-time tanpa resiko order terselip.",
-    challenge:
-      "Lonjakan pesanan jam sibuk membuat antrean kasir membeku dan database overload.",
-    solution:
-      "CodeIgniter 4 stripped-kernel di Docker container, fast caching menu in-memory, CI/CD auto-deploy.",
-    highlights: [
-      {
-        title: "Manfaat Bagi Bisnis",
-        text: "Antrean pesanan jam makan siang tersusun otomatis, pesanan masuk langsung tercetak di dapur.",
-      },
-      {
-        title: "Performa Website",
-        text: "Akses menu tetap responsif & ringan meski diakses ratusan pelanggan serentak.",
-      },
-    ],
-    metrics: [
-      { value: "99.9%", label: "Uptime Mesin" },
-      { value: "<120ms", label: "Kecepatan Checkout" },
-      { value: "0 Error", label: "Data Akurat" },
-    ],
-    techStack: [
-      "CodeIgniter 4",
-      "Docker Container",
-      "TailwindCSS",
-      "Database MySQL",
-    ],
-    lead: "Skyy",
-    leadImage: teamProfiles.skyy.image,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDFlpK8Gch6x1oKRaOMsf__hHMKqVBTelHNFXiVnsNr_S1wecPeJqbcTTnRsxiPijmVCV5IuHWecseXIGE9Sp73QEc1bavP3fzYHd7LoauofjoqEkuEbfm1I5ULTWzHcGed-QrZa7qmOtCO9aY7tvmoKKqUarz5xSwZBh1b6KBhkV6aLyGtmMezXj2v96zE5b2n1cjdRKp-K7tHL6IUGsmdrfusEj8coRK8mPynRg3_DfkdJZWxJOGq",
-    imageOverlay: {
-      text: "Auto-Sync Antrean Pesanan Aktif",
-      status: "Sinkronisasi Otomatis",
-    },
-    footerLabel: "Teruji di Lingkungan Produksi",
-    colorAccent: "primary",
-    layout: "text-left",
-  },
+
   {
     id: "pos-minimarket",
     category: "ritel",
@@ -164,33 +120,22 @@ export const sliderProjects: readonly SliderProject[] = [
     subtitle: "Content Management System",
     description:
       "Platform content management untuk mengelola destinasi wisata, paket tour, galeri foto, dan informasi booking secara dinamis. Dilengkapi panel admin intuitif untuk update konten tanpa sentuh kode.",
-    techStack: ["Next.js", "Strapi CMS", "PostgreSQL", "Cloudinary"],
+    techStack: ["Vue.js", "Node.js", "PostgreSQL", "Docker"],
     category: "Content Management",
-    image: "",
+    image: "/rancakalong.jpg",
     accentGradient: "bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-600",
     icon: "travel_explore",
   },
-  {
-    id: "pizza-ordering",
-    title: "Sistem Pemesanan Pizza Online",
-    subtitle: "Real-time Food Ordering",
-    description:
-      "Aplikasi web pemesanan pizza real-time dengan fitur customize topping, tracking status pesanan live, dan integrasi payment gateway. Dashboard dapur memantau antrean pesanan otomatis.",
-    techStack: ["CodeIgniter 4", "MySQL", "TailwindCSS", "Docker"],
-    category: "E-Commerce & F&B",
-    image: "",
-    accentGradient: "bg-gradient-to-br from-orange-400 via-red-500 to-rose-600",
-    icon: "local_pizza",
-  },
+
   {
     id: "finance-monitoring",
     title: "Sistem Monitoring Finance",
     subtitle: "Financial Dashboard & Analytics",
     description:
       "Dashboard monitoring keuangan real-time dengan visualisasi data interaktif, laporan otomatis terjadwal, dan notifikasi anomali transaksi. Membantu pengambilan keputusan bisnis berbasis data.",
-    techStack: ["React", "Node.js", "Chart.js", "MongoDB"],
+    techStack: ["React.js", "Golang", "PostgreSQL", "Docker"],
     category: "Fintech & Dashboard",
-    image: "",
+    image: "/Sistem_Monitoring_Finance.png",
     accentGradient: "bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-600",
     icon: "monitoring",
   },
@@ -200,9 +145,9 @@ export const sliderProjects: readonly SliderProject[] = [
     subtitle: "Human Resource Management System",
     description:
       "Aplikasi manajemen SDM lengkap dengan fitur absensi berbasis GPS, pengajuan cuti online, slip gaji digital, dan rekap kehadiran otomatis. Terintegrasi perhitungan lembur dan BPJS.",
-    techStack: ["Laravel", "Vue.js", "MySQL", "PWA"],
+    techStack: ["React.js", "Laravel", "MySQL", "Flutter", "Docker"],
     category: "Enterprise & HR",
-    image: "",
+    image: "/hrms-mobile-apps.jpg",
     accentGradient: "bg-gradient-to-br from-violet-500 via-purple-500 to-fuchsia-600",
     icon: "badge",
   },
@@ -212,9 +157,9 @@ export const sliderProjects: readonly SliderProject[] = [
     subtitle: "Automated ISP Billing Platform",
     description:
       "Sistem penagihan dan invoicing otomatis untuk Internet Service Provider dengan manajemen pelanggan, reminder tagihan, dan laporan pendapatan bulanan. Terintegrasi dengan router Mikrotik.",
-    techStack: ["PHP", "PostgreSQL", "PDF Generator", "REST API"],
+    techStack: ["Vue.js", "Golang", "MySQL", "Docker"],
     category: "Telekomunikasi & Billing",
-    image: "",
+    image: "/Billing-Invoice_ISP.png",
     accentGradient: "bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-500",
     icon: "receipt_long",
   },
@@ -224,9 +169,9 @@ export const sliderProjects: readonly SliderProject[] = [
     subtitle: "Logistics Management Platform",
     description:
       "Platform manajemen gudang dan pengiriman terintegrasi dengan tracking armada real-time, optimasi rute delivery, inventory management, dan laporan performa pengiriman harian.",
-    techStack: ["Next.js", "Express.js", "MongoDB", "Socket.io"],
+    techStack: ["React.js", "Golang", "MySQL", "Flutter", "Docker"],
     category: "Logistik & Supply Chain",
-    image: "",
+    image: "/Delivery-Warehouse.jpg",
     accentGradient: "bg-gradient-to-br from-amber-400 via-orange-500 to-red-500",
     icon: "local_shipping",
   },
