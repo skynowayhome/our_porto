@@ -203,8 +203,6 @@ export function ContactForm() {
           <form
             className="space-y-6"
             onSubmit={handleSubmit}
-            autoComplete="on"
-            suppressHydrationWarning
           >
             {/* Error Alert */}
             {status === "error" && errorMessage && (

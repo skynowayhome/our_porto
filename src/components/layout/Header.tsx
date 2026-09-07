@@ -25,8 +25,8 @@ export function Header() {
               alt="Zeki Studio Logo"
               className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105"
               src={logoImage}
-              width={36}
-              height={36}
+              width={659}
+              height={567}
               priority
               style={{ width: "auto" }}
             />

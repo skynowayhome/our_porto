@@ -15,8 +15,8 @@ export function Footer() {
                 alt="Zeki Studio Logo"
                 className="h-7 sm:h-8 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
                 src={logoImage}
-                width={32}
-                height={32}
+                width={659}
+                height={567}
                 style={{ width: "auto" }}
               />
               <span className="font-headline text-xl tracking-tight font-bold">
