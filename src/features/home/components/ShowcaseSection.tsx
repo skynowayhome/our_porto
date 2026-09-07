@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FadeInView } from "@/components/ui/FadeInView";
 import { TechBadge } from "@/components/ui/TechBadge";
 import { caseStudies } from "@/data";
@@ -77,11 +78,12 @@ export function ShowcaseSection() {
                   <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-surface-dim">
                     <div className="flex items-center gap-2.5">
                       {cs.leadImage ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
+                        <Image
                           alt={cs.lead}
                           className="w-7 h-7 rounded-full object-cover ring-1 ring-primary"
                           src={cs.leadImage}
+                          width={28}
+                          height={28}
                         />
                       ) : (
                         <IconRoute size={20} className="text-primary" />
@@ -105,14 +107,15 @@ export function ShowcaseSection() {
                 <div
                   className={`lg:col-span-6 ${cs.layout === "image-left" ? "order-1 lg:order-1" : "order-1 lg:order-2"}`}
                 >
-                  <div className="rounded-xl overflow-hidden bg-surface-container-high border border-surface-dim shadow-inner relative group">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      className="w-full h-60 sm:h-72 md:h-80 object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  <div className="rounded-xl overflow-hidden bg-surface-container-high border border-surface-dim shadow-inner relative group h-60 sm:h-72 md:h-80">
+                    <Image
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                       src={cs.image}
                       alt={cs.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 550px"
                     />
-                    <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3 right-2.5 sm:right-3 p-2.5 sm:p-3 rounded-lg bg-surface-container-lowest/90 backdrop-blur-md border border-surface-dim flex items-center justify-between text-xs shadow-sm">
+                    <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3 right-2.5 sm:right-3 p-2.5 sm:p-3 rounded-lg bg-surface-container-lowest/90 backdrop-blur-md border border-surface-dim flex items-center justify-between text-xs shadow-sm z-10">
                       <span className="text-on-surface flex items-center gap-1.5 truncate text-[11px] sm:text-xs">
                         <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
                         <span className="truncate">{cs.imageOverlay.text}</span>

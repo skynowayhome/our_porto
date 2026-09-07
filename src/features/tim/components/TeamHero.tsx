@@ -33,14 +33,14 @@ const valuePills = [
 export function TeamHero() {
   return (
     <section className="relative max-w-container mx-auto px-4 sm:px-6 md:px-8 pt-10 sm:pt-14 md:pt-20 pb-12 sm:pb-16 text-center">
-      <FadeInView>
+      {/* <FadeInView>
         <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-surface-container-low border border-surface-dim shadow-sm mb-6">
           <IconHandshake size={16} className="text-primary" />
           <span className="font-headline text-xs sm:text-sm font-semibold text-primary">
             Studio Rekayasa Digital • Dua Partner Berpengalaman
           </span>
         </div>
-      </FadeInView>
+      </FadeInView> */}
 
       <FadeInView delay={0.1}>
         <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold text-on-surface tracking-tight leading-[1.15] mb-5 sm:mb-6 max-w-3xl mx-auto">

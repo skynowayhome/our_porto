@@ -76,7 +76,7 @@ export const workProcess: readonly WorkProcessStep[] = [
     title: "Pengerjaan & Coba Langsung Versi Awal",
     duration: "Tiap 2 Minggu",
     description:
-      "Skyy dan Aris mulai membuat aplikasi. Setiap dua minggu, Anda bisa langsung coba versi awal. Tidak perlu menunggu lama dan kaget di akhir karena hasilnya berbeda.",
+      "Rezki dan Ahmad mulai membuat aplikasi. Setiap dua minggu, Anda bisa langsung coba versi awal. Tidak perlu menunggu lama dan kaget di akhir karena hasilnya berbeda.",
     icon: "construction",
     cta: "Hasil: Link Demo Nyata & Feedback",
   },
@@ -152,4 +152,4 @@ export const techStacks: readonly TechStackItem[] = [
   },
 ];
 
-export const logoImage = "/Logo.webp?v=2";
+export const logoImage = "/Logo.webp";

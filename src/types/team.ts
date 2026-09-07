@@ -7,6 +7,7 @@ export interface SkillItem {
 
 export interface TeamMemberProfile {
   name: string;
+  nickname?: string;
   role: string;
   badge: string;
   specialization: string;

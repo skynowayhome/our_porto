@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { sliderProjects } from "@/data";
 import { SliderProject } from "@/types";
@@ -48,11 +49,12 @@ function ProjectCard({
         className={`relative aspect-[16/10] ${project.accentGradient} flex items-center justify-center overflow-hidden group`}
       >
         {project.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
           />
         ) : (
           <>
@@ -205,32 +207,15 @@ export function ProjectSlider() {
     return () => window.removeEventListener("resize", update);
   }, []);
 
-  /* ── Auto-play ── */
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setActiveIndex((p) => (p + 1) % total);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [isPaused, total, activeIndex]);
-
-  /* ── Keyboard navigation ── */
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") goTo((activeIndex - 1 + total) % total);
-      if (e.key === "ArrowRight") goTo((activeIndex + 1) % total);
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [activeIndex, total]);
+  const pauseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const goTo = useCallback(
     (idx: number) => {
       setActiveIndex(idx);
       setIsPaused(true);
+      if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
       // Resume auto-play after 6s
-      const t = setTimeout(() => setIsPaused(false), 6000);
-      return () => clearTimeout(t);
+      pauseTimerRef.current = setTimeout(() => setIsPaused(false), 6000);
     },
     []
   );
@@ -240,6 +225,32 @@ export function ProjectSlider() {
     () => goTo((activeIndex - 1 + total) % total),
     [activeIndex, total, goTo]
   );
+
+  // Clean up pause timer on unmount
+  useEffect(() => {
+    return () => {
+      if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
+    };
+  }, []);
+
+  /* ── Auto-play ── */
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActiveIndex((p) => (p + 1) % total);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [isPaused, total]);
+
+  /* ── Keyboard navigation ── */
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") goTo((activeIndex - 1 + total) % total);
+      if (e.key === "ArrowRight") goTo((activeIndex + 1) % total);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [activeIndex, total, goTo]);
 
   /* ── Track offset to keep active card centered ── */
   const trackX =

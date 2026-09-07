@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FadeInView } from "@/components/ui/FadeInView";
 import { TechBadge } from "@/components/ui/TechBadge";
 import { services } from "@/data";
@@ -85,15 +86,15 @@ export function ServicesPillars() {
                   </div>
 
                   <div className={`lg:col-span-5 ${isReversed ? "lg:order-1" : "lg:order-2"}`}>
-                    <div className="rounded-xl overflow-hidden bg-surface-container-high border border-surface-dim shadow-inner relative group">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        className="w-full h-60 sm:h-72 object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    <div className="rounded-xl overflow-hidden bg-surface-container-high border border-surface-dim shadow-inner relative group h-60 sm:h-72">
+                      <Image
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                         src={currentImage}
                         alt={service.title}
-                        loading="lazy"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 450px"
                       />
-                      <div className="absolute bottom-3 left-3 right-3 p-2.5 rounded-lg bg-surface-container-lowest/90 backdrop-blur-md border border-surface-dim text-xs shadow-sm flex items-center justify-between">
+                      <div className="absolute bottom-3 left-3 right-3 p-2.5 rounded-lg bg-surface-container-lowest/90 backdrop-blur-md border border-surface-dim text-xs shadow-sm flex items-center justify-between z-10">
                         <span className={`text-${service.colorAccent} font-semibold`}>
                           {serviceEstimations[service.id] || "2 - 4 Minggu"}
                         </span>

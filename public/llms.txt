@@ -1,0 +1,25 @@
+# Zeki Studio
+
+> Studio rekayasa perangkat lunak modern asal Indonesia: spesialis pembuatan website bisnis, sistem dashboard operasional/analitik, dan aplikasi mobile (iOS & Android).
+
+Dikerjakan langsung oleh software engineer senior tanpa alih daya (*sub-contracting*) ke pihak ketiga.
+
+## Layanan & Solusi Utama
+
+- [Web & Landing Page Kilat](https://zekistudio.dev/layanan): Pembuatan website modern dengan Next.js, SEO-friendly, loading secepat kilat (skor 95+), dan desain responsif berkonversi tinggi.
+- [WebApps & Dashboard Bisnis](https://zekistudio.dev/layanan): Sistem portal admin, dashboard keuangan & analitik data real-time dengan skalabilitas tinggi.
+- [Aplikasi Mobile Android & iOS](https://zekistudio.dev/layanan): Pengembangan aplikasi native/cross-platform (Flutter) dengan arsitektur offline-first dan sinkronisasi otomatis.
+- [Audit Source Code & DevSecOps](https://zekistudio.dev/layanan): Peninjauan keamanan aplikasi standar OWASP, penataan CI/CD pipeline, dan optimasi arsitektur database.
+
+## Tim Rekayasa
+
+- **Rezki Langit Ramadhan**: Tech Lead & Web Architect (Next.js, React, Cloud Systems, Docker, Security).
+- **Ahmad Rizki**: Mobile Developer & Co-Founder (Flutter, Android/iOS, SQLite Offline-First, Cloud Integration).
+
+## Portofolio & Studi Kasus
+
+- [Portofolio Proyek](https://zekistudio.dev/portofolio): Studi kasus implementasi Web Order Restoran, Dashboard Finance Artacom, dan Solusi HRMS SaaS.
+
+## Kontak & Konsultasi
+
+- [Halaman Kontak & Konsultasi](https://zekistudio.dev/kontak): Diskusi ide dan kebutuhan sistem tanpa komitmen awal.

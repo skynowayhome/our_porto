@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { logoImage } from "@/data";
 import { IconCode, IconBadge, IconMail } from "@/components/ui/Icons";
 
@@ -10,11 +11,13 @@ export function Footer() {
           {/* Brand & Tagline */}
           <div className="max-w-sm">
             <Link href="/" className="flex items-center gap-1.5 sm:gap-2 mb-4 group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 alt="Zeki Studio Logo"
                 className="h-7 sm:h-8 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
                 src={logoImage}
+                width={32}
+                height={32}
+                style={{ width: "auto" }}
               />
               <span className="font-headline text-xl tracking-tight font-bold">
                 Zeki<span className="text-inverse-primary"> Studio</span>

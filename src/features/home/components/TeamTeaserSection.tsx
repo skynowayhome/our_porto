@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FadeInView } from "@/components/ui/FadeInView";
 import { TechBadge } from "@/components/ui/TechBadge";
 import { teamMembers } from "@/data";
@@ -13,7 +14,7 @@ export function TeamTeaserSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
           <div>
             <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl text-on-surface font-bold tracking-tight">
-              Dua Insinyur di Balik Setiap Baris Kode Anda
+              Partner Teknis di Balik Setiap Baris Kode Anda
             </h2>
             <p className="text-on-surface-variant text-sm sm:text-base mt-2 max-w-xl">
               Kami bekerja kompak, teliti, dan mengutamakan kualitas aplikasi
@@ -43,13 +44,14 @@ export function TeamTeaserSection() {
                   <div
                     className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-xl overflow-hidden ring-2 ring-${profile.colorAccent}/20 shrink-0 shadow-sm`}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       alt={`${profile.name} Portrait`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                       src={profile.image}
+                      fill
+                      sizes="(max-width: 768px) 96px, 112px"
                     />
-                    <div className="absolute bottom-1.5 right-1.5 w-3.5 h-3.5 rounded-full bg-emerald-500 ring-2 ring-surface-container-lowest" />
+                    <div className="absolute bottom-1.5 right-1.5 w-3.5 h-3.5 rounded-full bg-emerald-500 ring-2 ring-surface-container-lowest z-10" />
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1 flex-wrap">

@@ -50,7 +50,7 @@ export function Logo3DCard() {
 
     // Load logo texture
     const textureLoader = new THREE.TextureLoader();
-    const logoTexture = textureLoader.load("/Logo.webp?v=2");
+    const logoTexture = textureLoader.load("/Logo.webp");
     logoTexture.colorSpace = THREE.SRGBColorSpace;
 
     // Front face — logo on a rounded box shape using BoxGeometry
