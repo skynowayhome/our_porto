@@ -8,7 +8,6 @@ import {
   IconCheck,
   IconCode,
   IconBadge,
-  IconGroup,
 } from "@/components/ui/Icons";
 
 export function TeamProfiles() {
@@ -142,32 +141,6 @@ export function TeamProfiles() {
         })}
       </div>
 
-      {/* Synergy Tag */}
-      <FadeInView delay={0.3} scale={true}>
-        <div className="mt-6 sm:mt-8 rounded-xl bg-surface-container-low border border-surface-dim p-4 sm:p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-primary-fixed text-primary flex items-center justify-center shrink-0">
-              <IconGroup size={22} />
-            </div>
-            <div>
-              <div className="font-headline text-sm text-on-surface font-bold">
-                Sinergi Sempurna: Satu Tim untuk Semua Kebutuhan
-              </div>
-              <div className="text-xs text-on-surface-variant">
-                Website dan aplikasi mobile Anda berkolaborasi secara harmonis tanpa perlu repot mengelola dua vendor berbeda.
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 shrink-0 self-stretch sm:self-auto justify-end">
-            <span className="px-3 py-1 rounded-full bg-primary-fixed text-primary text-xs font-semibold">
-              Terstandardisasi
-            </span>
-            <span className="px-3 py-1 rounded-full bg-secondary-fixed text-secondary text-xs font-semibold">
-              100% Kompatibel
-            </span>
-          </div>
-        </div>
-      </FadeInView>
     </section>
   );
 }

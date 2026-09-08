@@ -2,6 +2,7 @@
 
 import { PortfolioHero } from "./components/PortfolioHero";
 import { ProjectSlider } from "./components/ProjectSlider";
+import { PortfolioWorkProcess } from "./components/PortfolioWorkProcess";
 import { PortfolioCta } from "./components/PortfolioCta";
 
 export function PortfolioView() {
@@ -11,6 +12,9 @@ export function PortfolioView() {
 
       {/* Project Slider Section */}
       <ProjectSlider />
+
+      {/* Alur Kerja / Work Process Section */}
+      <PortfolioWorkProcess />
 
       <PortfolioCta />
     </div>

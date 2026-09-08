@@ -2,7 +2,7 @@ import { FadeInView } from "@/components/ui/FadeInView";
 import { workProcess } from "@/data";
 import { IconCheck, IconCheckCircle, iconMap } from "@/components/ui/Icons";
 
-export function TeamWorkProcess() {
+export function PortfolioWorkProcess() {
   return (
     <section className="max-w-container mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16">
       <FadeInView>
