@@ -68,39 +68,63 @@ export const budgetOptions: readonly BudgetOption[] = [
 export const workProcess: readonly WorkProcessStep[] = [
   {
     step: "01",
-    title: "Diskusi Santai & Rencana Sistem",
+    title: "Discovery & Scope Locking",
     duration: "1 - 3 Hari",
+    badge: "Offline / Online",
     description:
-      "Kami ngobrol santai mengenai kebutuhan dan alur bisnis Anda. Dari situ kami akan merancang arsitektur teknis yang efisien, membuat estimasi biaya berdasarkan kebutuhan.",
+      "Sesi konsultasi mendalam untuk memahami alur bisnis dan kebutuhan sistem Anda. Kami melayani pertemuan tatap muka di Jakarta & Bekasi maupun online via Google Meet. Di akhir sesi, kami mengunci ruang lingkup (scope) proyek secara transparan agar bebas dari scope creep di kemudian hari.",
+    highlights: [
+      "Opsi tatap muka (Jakarta & Bekasi) / Online",
+      "Kunci ruang lingkup & cegah scope creep",
+      "Rekomendasi arsitektur & estimasi transparan",
+    ],
     icon: "forum",
-    cta: "Hasil: Dokumen Rencana & Biaya Pasti",
+    cta: "Output: Scope of Work & Estimasi Pasti",
   },
   {
     step: "02",
-    title: "Pengerjaan & Coba Langsung Versi Awal",
-    duration: "Tiap 2 Minggu",
+    title: "Kesepakatan Kerja (SPK/SoW) & DP 30%",
+    duration: "Termin I (30%)",
+    badge: "DP 30%",
     description:
-      "Rezki dan Ahmad mulai membuat aplikasi. Setiap dua minggu, Anda bisa langsung coba versi awal. Tidak perlu menunggu lama dan kaget di akhir karena hasilnya berbeda.",
-    icon: "construction",
-    cta: "Hasil: Link Demo Nyata & Feedback",
+      "Penerbitan Surat Perintah Kerja (SPK/SoW) resmi dan Dokumen Spesifikasi Kebutuhan (BRD). Dokumen mengikat ini memuat rincian fitur yang disepakati, arsitektur teknologi, timeline pengerjaan, klausul batasan revisi, dan invoice DP 30%. Coding resmi dimulai setelah SPK disetujui & DP diterima.",
+    highlights: [
+      "Dokumen legal SPK/SoW & BRD terperinci",
+      "Jadwal timeline & batasan revisi jelas",
+      "Pengerjaan coding dimulai setelah DP 30%",
+    ],
+    icon: "gavel",
+    cta: "Output: SPK Disepakati & Kick-off Coding",
   },
   {
     step: "03",
-    title: "Penyempurnaan & Uji Keamanan",
-    duration: "Uji Kualitas",
+    title: "Development Agile & Demo Berkala",
+    duration: "Termin II (30%)",
+    badge: "Termin II: 30%",
     description:
-      "Sebelum rilis resmi, kami tampung feedback dan testing pola serangan di depan user demo, serta pastikan semua fitur berfungsi di semua ukuran layar dan browser.",
-    icon: "verified_user",
-    cta: "Hasil: Aplikasi Stabil & Aman",
+      "Pengembangan fleksibel & transparan tanpa black box. Setiap dua minggu, Anda bisa mencoba langsung link demo versi awal yang berfungsi. Saat milestone utama tercapai dan Anda puas dengan fitur yang diuji, Invoice Termin II (30%) diterbitkan sebelum lanjut ke tahap testing & staging.",
+    highlights: [
+      "Coba link demo interaktif tiap 2 minggu",
+      "Progres terbuka & bisa langsung dites",
+      "Invoice Termin II diterbitkan pasca approval demo",
+    ],
+    icon: "construction",
+    cta: "Output: Demo Terverifikasi & Sistem Siap UAT",
   },
   {
     step: "04",
-    title: "Peluncuran & Serah Terima Kunci",
-    duration: "Peluncuran",
+    title: "UAT, Deployment & Pelunasan",
+    duration: "Pelunasan (40%)",
+    badge: "Pelunasan 40%",
     description:
-      "Aplikasi resmi tayang di Google Play, App Store, atau domain Anda. Semua kode dan akun di serah-terimakan. Dan kami tetap mendampingi selama masa garansi aktif.",
+      "Uji coba menyeluruh melalui User Acceptance Testing (UAT) di server staging untuk memastikan semua fitur sesuai SoW. Setelah UAT disetujui dan sisa 40% dilunasi, sistem di-deploy live ke domain/server Anda dengan serah terima full source code, kredensial, serta garansi bug-fixing (1–3 bulan).",
+    highlights: [
+      "Pengujian UAT di server staging tertutup",
+      "Pelunasan 40% & serah terima full source code",
+      "Garansi bug-fixing 1–3 bulan pasca rilis",
+    ],
     icon: "rocket_launch",
-    cta: "Hasil: Stop Panic + Produk Lengkap",
+    cta: "Output: Aplikasi Live, Full Handover & Garansi",
   },
 ];
 

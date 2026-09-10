@@ -29,7 +29,9 @@ export interface WorkProcessStep {
   step: string;
   title: string;
   duration: string;
+  badge?: string;
   description: string;
+  highlights?: readonly string[];
   icon: string;
   cta: string;
 }
