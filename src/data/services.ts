@@ -125,8 +125,8 @@ export const pricingModels: readonly PricingModel[] = [
   },
   {
     tag: "MVP Startup & Bisnis",
-    highlight: true,
-    highlightLabel: "Paling Diminati UMKM & Startup",
+    highlight: false,
+    highlightLabel: "",
     title: "WebApps & Sistem Operasional",
     description:
       "Sistem kasir (POS), manajemen stok, CRM pelanggan, atau platform MVP startup untuk otomatisasi alur kerja usaha.",
@@ -140,7 +140,7 @@ export const pricingModels: readonly PricingModel[] = [
       "Termasuk video panduan staf & garansi 30 hari",
     ],
     cta: "Konsultasi Sistem",
-    ctaStyle: "primary",
+    ctaStyle: "outline",
   },
   {
     tag: "Mobile App Praktis",

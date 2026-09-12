@@ -25,5 +25,8 @@ export interface TeamProfilesMap {
   [key: string]: TeamMemberProfile;
   skyy: TeamMemberProfile;
   aris: TeamMemberProfile;
+  cfo: TeamMemberProfile;
+  cmo: TeamMemberProfile;
 }
+
 

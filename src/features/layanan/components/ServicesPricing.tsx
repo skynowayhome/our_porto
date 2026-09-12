@@ -45,7 +45,7 @@ export function ServicesPricing() {
                 <p className="text-on-surface-variant text-xs leading-relaxed mb-5 min-h-[36px]">
                   {model.description}
                 </p>
-                <div className="pt-3.5 border-t border-surface-dim/70 mb-5">
+                <div className="pt-3.5 border-t border-surface-dim/70">
                   <div className="text-[11px] font-semibold uppercase tracking-wider text-on-surface-variant mb-2.5">
                     Cakupan Layanan:
                   </div>
@@ -62,18 +62,6 @@ export function ServicesPricing() {
                   </ul>
                 </div>
               </div>
-
-              <Link
-                href="/kontak"
-                className={`w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg font-headline font-semibold text-xs transition-all duration-200 ${
-                  model.ctaStyle === "primary"
-                    ? "bg-primary text-on-primary shadow-[0_4px_16px_rgba(39,94,149,0.25)] hover:bg-[#1f4e7d] active:scale-95"
-                    : "bg-surface-container-lowest border border-surface-dim text-on-surface hover:border-primary/40 hover:text-primary"
-                }`}
-              >
-                <span>{model.cta}</span>
-                <IconArrowRight size={16} />
-              </Link>
             </div>
           ))}
         </div>

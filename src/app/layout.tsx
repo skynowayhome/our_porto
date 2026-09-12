@@ -94,12 +94,12 @@ const jsonLd = {
         {
           "@type": "Person",
           name: "Rezki Langit Ramadhan",
-          jobTitle: "Tech Lead & Web Architect",
+          jobTitle: "Chief Technology Officer",
         },
         {
           "@type": "Person",
           name: "Ahmad Rizki",
-          jobTitle: "Mobile Developer & Co-Founder",
+          jobTitle: "Founder",
         },
       ],
       offers: [

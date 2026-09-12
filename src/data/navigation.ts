@@ -46,8 +46,7 @@ export const budgetOptions: readonly BudgetOption[] = [
   },
   {
     label: "MVP Startup & Bisnis",
-    tag: "Paling Diminati",
-    popular: true,
+    tag: "Konsultasi",
     description: "WebApps & Sistem Operasional.",
     icon: "rocket_launch",
   },

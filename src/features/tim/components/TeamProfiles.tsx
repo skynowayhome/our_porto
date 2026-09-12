@@ -1,11 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
 import { FadeInView } from "@/components/ui/FadeInView";
-import { SectionBadge } from "@/components/ui/SectionBadge";
-import { TechBadge } from "@/components/ui/TechBadge";
 import { teamMembers } from "@/data";
 import {
-  IconCheck,
   IconCode,
   IconBadge,
 } from "@/components/ui/Icons";
@@ -18,18 +14,17 @@ export function TeamProfiles() {
           <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl text-on-surface font-bold tracking-tight">
             Partner Teknis di Balik Solusi Digital Anda
           </h2>
-          <p className="text-on-surface-variant text-sm sm:text-base mt-2">
+          {/* <p className="text-on-surface-variant text-sm sm:text-base mt-2">
             Kombinasi lengkap antara sistem cloud & website yang stabil dengan
             aplikasi mobile berkekuatan tinggi yang ramah digunakan pengguna
             Anda.
-          </p>
+          </p> */}
         </div>
       </FadeInView>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
         {teamMembers.map((profile, index) => {
           const isAhmad = profile.name.includes("Ahmad");
-          const firstName = profile.name.split(" ")[0];
 
           return (
             <FadeInView key={profile.name} delay={index * 0.15}>
@@ -37,22 +32,30 @@ export function TeamProfiles() {
                 className="relative rounded-2xl bg-surface-container-lowest border border-surface-dim shadow-md hover:shadow-xl transition-all duration-500 flex flex-col group overflow-hidden h-full"
               >
                 {/* Photo Showcase (Clear Portrait with full visibility) */}
-                <div className="relative w-full aspect-[4/4.6] sm:aspect-[4/4.8] overflow-hidden bg-[#e8e6df]/50">
-                  <Image
-                    alt={`${profile.name} Portrait`}
-                    className={`object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${
-                      isAhmad
-                        ? "object-[center_28%]"
-                        : "object-[center_12%]"
-                    }`}
-                    src={profile.image}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 550px"
-                    priority={index === 0}
-                  />
+                <div className="relative w-full aspect-[4/4.6] sm:aspect-[4/4.8] overflow-hidden bg-[#e8e6df]/50 flex items-center justify-center">
+                  {profile.image ? (
+                    <Image
+                      alt={`${profile.name} Portrait`}
+                      className={`object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${
+                        isAhmad
+                          ? "object-[center_28%]"
+                          : "object-[center_12%]"
+                      }`}
+                      src={profile.image.startsWith("/") || profile.image.startsWith("http") ? profile.image : `/${profile.image}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 550px"
+                      priority={index === 0}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center bg-surface-container text-on-surface-variant p-6 text-center select-none">
+                      <span className="text-xs sm:text-sm font-semibold text-on-surface">
+                        Foto {profile.role}
+                      </span>
+                    </div>
+                  )}
 
                   {/* Subtle soft gradient at very bottom edge only */}
-                  <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/40 to-transparent z-10" />
+                  <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/40 to-transparent z-10 pointer-events-none" />
 
                   {/* Role Badge Top Left */}
                   <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
@@ -84,11 +87,6 @@ export function TeamProfiles() {
                       {profile.specialization}
                     </p>
                   </div>
-
-                  {/* Short Bio */}
-                  <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-5">
-                    {profile.bio}
-                  </p>
 
                   {/* Quote / Role Statement */}
                   <div className="bg-surface-container-low/80 border border-surface-dim p-4 rounded-xl mb-6 relative">
@@ -123,16 +121,6 @@ export function TeamProfiles() {
                         <IconBadge size={18} />
                       </a>
                     </div>
-                    <Link
-                      href="/kontak"
-                      className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold border transition-all active:scale-95 shadow-xs ${
-                        profile.colorAccent === "primary"
-                          ? "bg-primary text-on-primary border-primary hover:bg-[#1f4e7d]"
-                          : "bg-secondary text-on-secondary border-secondary hover:bg-secondary/90"
-                      }`}
-                    >
-                      Diskusi dengan {firstName}
-                    </Link>
                   </div>
                 </div>
               </div>

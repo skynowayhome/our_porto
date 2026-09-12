@@ -55,7 +55,7 @@ export function TeamHero() {
       <FadeInView delay={0.2}>
         <p className="text-on-surface-variant text-sm sm:text-base leading-relaxed mb-8 sm:mb-10 max-w-2xl mx-auto">
           Kami bukan agensi besar dengan birokrasi rumit dan perantara sales.
-          Bersama <strong>Skyy</strong> dan <strong>Aris</strong>, setiap ide
+          Bersama dengan <strong>Tim Kami</strong>, setiap ide
           aplikasi dan sistem bisnis Anda dikerjakan dengan teliti, transparan,
           dan penuh dedikasi seperti merawat produk sendiri.
         </p>

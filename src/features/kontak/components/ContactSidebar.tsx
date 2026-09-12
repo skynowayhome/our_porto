@@ -48,12 +48,12 @@ export function ContactSidebar() {
           </a>
 
           <a
-            href="mailto:hello@zekistudio.dev"
+            href="mailto:zeki.studiodev@gmail.com"
             className="flex items-center gap-3 w-full px-5 py-3 rounded-lg bg-surface-container-low border border-surface-dim text-on-surface hover:border-primary/40 transition-all text-sm"
           >
             <Mail className="w-5 h-5 text-primary" />
             <div>
-              <div className="font-medium">hello@zekistudio.dev</div>
+              <div className="font-medium">zeki.studiodev@gmail.com</div>
               <div className="text-xs text-on-surface-variant">
                 Kirim dokumen brief atau proposal
               </div>

@@ -18,7 +18,7 @@ export function HeroSection() {
           <span className="text-primary underline decoration-secondary-container decoration-4 underline-offset-4">
             Cepat, Menawan,
           </span>{" "}
-          dan Siap Dipakai Jualan.
+          dan Siap Dipakai Sesuai Kebutuhan.
         </h1>
       </FadeInView>
 

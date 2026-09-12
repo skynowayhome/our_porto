@@ -62,7 +62,7 @@ export function ContactForm() {
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(0);
-  const [selectedBudget, setSelectedBudget] = useState(1);
+  const [selectedBudget, setSelectedBudget] = useState(0);
   const [description, setDescription] = useState("");
   const [projectLink, setProjectLink] = useState("");
 

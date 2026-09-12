@@ -13,8 +13,8 @@ Dikerjakan langsung oleh software engineer senior tanpa alih daya (*sub-contract
 
 ## Tim Rekayasa
 
-- **Rezki Langit Ramadhan**: Tech Lead & Web Architect (Next.js, React, Cloud Systems, Docker, Security).
-- **Ahmad Rizki**: Mobile Developer & Co-Founder (Flutter, Android/iOS, SQLite Offline-First, Cloud Integration).
+- **Rezki Langit Ramadhan**: Chief Technology Officer (Next.js, React, Cloud Systems, Docker, Security).
+- **Ahmad Rizki**: Founder (Flutter, Android/iOS, SQLite Offline-First, Cloud Integration).
 
 ## Portofolio & Studi Kasus
 

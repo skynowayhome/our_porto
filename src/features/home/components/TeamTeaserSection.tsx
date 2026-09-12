@@ -42,15 +42,19 @@ export function TeamTeaserSection() {
               <div>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 mb-5 sm:mb-6">
                   <div
-                    className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-xl overflow-hidden ring-2 ring-${profile.colorAccent}/20 shrink-0 shadow-sm`}
+                    className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-xl overflow-hidden ring-2 ring-${profile.colorAccent}/20 shrink-0 shadow-sm bg-surface-container flex items-center justify-center`}
                   >
-                    <Image
-                      alt={`${profile.name} Portrait`}
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      src={profile.image}
-                      fill
-                      sizes="(max-width: 768px) 96px, 112px"
-                    />
+                    {profile.image ? (
+                      <Image
+                        alt={`${profile.name} Portrait`}
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        src={profile.image.startsWith("/") || profile.image.startsWith("http") ? profile.image : `/${profile.image}`}
+                        fill
+                        sizes="(max-width: 768px) 96px, 112px"
+                      />
+                    ) : (
+                      <span className="text-xs text-on-surface-variant font-medium">Foto</span>
+                    )}
                     <div className="absolute bottom-1.5 right-1.5 w-3.5 h-3.5 rounded-full bg-emerald-500 ring-2 ring-surface-container-lowest z-10" />
                   </div>
                   <div>

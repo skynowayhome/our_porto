@@ -73,7 +73,7 @@ export function Footer() {
                 {
                   label: "Email",
                   IconComponent: IconMail,
-                  href: "mailto:hello@zekistudio.dev",
+                  href: "mailto:zeki.studiodev@gmail.com",
                 },
               ].map((social) => (
                 <a
