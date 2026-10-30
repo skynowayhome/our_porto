@@ -31,9 +31,9 @@ export const contactCategories: readonly ContactCategory[] = [
     description: "Aplikasi Android & iOS (Flutter).",
   },
   {
-    icon: "shield",
-    label: "Audit & DevSecOps",
-    description: "Audit Source Code & Keamanan Aplikasi.",
+    icon: "architecture",
+    label: "Project Planner (SRS, PRD & UML)",
+    description: "Dokumen Spesifikasi Teknis & Diagram UML Bebas Pilih.",
   },
 ];
 
@@ -57,10 +57,10 @@ export const budgetOptions: readonly BudgetOption[] = [
     icon: "smartphone",
   },
   {
-    label: "Solusi Cepat",
+    label: "Blueprint & Arsitektur",
     tag: "Konsultasi",
-    description: "Perbaikan Sistem & Optimasi.",
-    icon: "shield",
+    description: "Project Planner (SRS, PRD & UML).",
+    icon: "clipboard_list",
   },
 ];
 
@@ -86,11 +86,11 @@ export const workProcess: readonly WorkProcessStep[] = [
     duration: "Termin I (30%)",
     badge: "DP 30%",
     description:
-      "Penerbitan Surat Perintah Kerja (SPK/SoW) resmi dan Dokumen Spesifikasi Kebutuhan (BRD). Dokumen mengikat ini memuat rincian fitur yang disepakati, arsitektur teknologi, timeline pengerjaan, klausul batasan revisi, dan invoice DP 30%. Coding resmi dimulai setelah SPK disetujui & DP diterima.",
+      "Penerbitan Surat Perintah Kerja (SPK/SoW) resmi dan Dokumen Spesifikasi Kebutuhan (BRD/SRS). Dokumen mengikat ini memuat rincian fitur yang disepakati, arsitektur teknologi, timeline pengerjaan, klausul batasan revisi, dan invoice DP 30%. Pengerjaan resmi dimulai setelah SPK disetujui & DP diterima.",
     highlights: [
-      "Dokumen legal SPK/SoW & BRD terperinci",
+      "Dokumen legal SPK/SoW & BRD/SRS terperinci",
       "Jadwal timeline & batasan revisi jelas",
-      "Pengerjaan coding dimulai setelah DP 30%",
+      "Pengerjaan dimulai setelah DP 30%",
     ],
     icon: "gavel",
     cta: "Output: SPK Disepakati & Kick-off Coding",
@@ -116,11 +116,11 @@ export const workProcess: readonly WorkProcessStep[] = [
     duration: "Pelunasan (40%)",
     badge: "Pelunasan 40%",
     description:
-      "Uji coba menyeluruh melalui User Acceptance Testing (UAT) di server staging untuk memastikan semua fitur sesuai SoW. Setelah UAT disetujui dan sisa 40% dilunasi, sistem di-deploy live ke domain/server Anda dengan serah terima full source code, kredensial, serta garansi bug-fixing (1–3 bulan).",
+      "Uji coba menyeluruh melalui User Acceptance Testing (UAT) di server staging untuk memastikan semua fitur sesuai SoW. Setelah UAT disetujui dan sisa 40% dilunasi, Anda bebas memilih: dibantu deploy langsung ke server/domain Anda atau hand-over full source code secara utuh (biaya hosting/server terhitung di luar jasa).",
     highlights: [
       "Pengujian UAT di server staging tertutup",
-      "Pelunasan 40% & serah terima full source code",
-      "Garansi bug-fixing 1–3 bulan pasca rilis",
+      "Pilihan: dibantu deploy atau serah terima source code utuh",
+      "Garansi bug-fixing 1–3 bulan pasca serah terima",
     ],
     icon: "rocket_launch",
     cta: "Output: Aplikasi Live, Full Handover & Garansi",
@@ -132,34 +132,34 @@ export const commitmentValues: readonly CommitmentValue[] = [
     icon: "record_voice_over",
     title: "Bicara Langsung ke Pembuatnya (Tanpa Perantara Sales)",
     description:
-      'Tidak ada pihak "sales person" berdasi licper dan sales ke manajer lalu ke programmer. Setiap kebutuhan, ide, dan konsultasinya dijawab langsung oleh Skyy atau Aris dengan bahasa sederhana dan solusi.',
+      'Tidak ada pihak "sales person" perantara ke programmer. Setiap kebutuhan, ide, dan konsultasinya dijawab langsung oleh Skyy atau Aris dengan bahasa sederhana dan solusi.',
     cta: "Diskusi cepat via WhatsApp, Google Meet, atau Slack",
   },
   {
     icon: "verified_user",
     title: "Kepemilikan 100% Milik Anda (Tanpa Terkunci)",
     description:
-      "Semua source code, database, dan server cepanya berpindah tangan ke Anda. Mau kerekrut-an dari luar pun Anda aman, Kami menyerahkan hak kekayaan intelektualnya sepenuhnya.",
+      "Semua source code, dokumen, database, dan akun server sepenuhnya berpindah tangan ke Anda. Anda bebas mengembangkannya di kemudian hari karena hak kekayaan intelektual milik Anda mutlak.",
     cta: "Aset digital lengkap, Anda pemegang kendali mutlak",
   },
   {
     icon: "health_and_safety",
     title: "Garansi Pendampingan Tanpa Pusing",
     description:
-      "Kami tidak langsung menghilang saat aplikasi diluncurkan. Kami menyediakan masa garansi bug gratis pasca-rilis, panduan peremajaan dokumentasi untuk staf Anda, dan siap saja Jika ada kendala-pasca-rilis.",
-    cta: "Dukungan perbaikan bug gratis pasca peluncuran",
+      "Kami tidak langsung menghilang saat sistem selesai. Kami menyediakan masa garansi bug gratis pasca-rilis, panduan dokumentasi untuk staf atau penguji Anda, dan pendampingan jika ada kendala.",
+    cta: "Dukungan perbaikan bug gratis pasca penyerahan",
   },
   {
     icon: "schedule",
     title: "Pengerjaan Tepat Waktu & Transparan",
     description:
-      "Setiap dua minggu Anda bisa langsung memeriksa dan mencoba aplikasi yang sedang dikerjakan. Anda bersama kami bisa memonitor progres termasuk revisi berkala yang kami terima dengan lapang dada tanpa biaya ekstra.",
+      "Setiap perkembangan bisa dipantau langsung. Anda bersama kami bisa memonitor progres termasuk penyesuaian berkala yang kami diskusikan secara terbuka tanpa biaya tersembunyi.",
     cta: "Proses dan rencana terbuka, progress jelas dan terperinci",
   },
 ];
 
 export const techStacks: readonly TechStackItem[] = [
-  { name: "Next.js & React", description: "Website Kilat", icon: "web" },
+  { name: "Next.js & React", description: "Website Responsif", icon: "web" },
   {
     name: "Tailwind CSS",
     description: "Desain Modern Rapi",
@@ -171,11 +171,11 @@ export const techStacks: readonly TechStackItem[] = [
     description: "Data Aman Tersimpan",
     icon: "database",
   },
-  { name: "Docker & CI/CD", description: "Server Otomatis", icon: "cloud_sync" },
+  { name: "UML & SRS IEEE", description: "Blueprint Terstruktur", icon: "architecture" },
   {
-    name: "C++ Engine",
-    description: "Komputasi Ringan",
-    icon: "memory",
+    name: "Docker & CI/CD",
+    description: "Otomasi Server",
+    icon: "cloud_sync",
   },
 ];
 

@@ -12,7 +12,7 @@ export function Footer() {
           <div className="max-w-sm">
             <Link href="/" className="flex items-center gap-1.5 sm:gap-2 mb-4 group">
               <Image
-                alt="Zeki Studio Logo"
+                alt="ZQube Logo"
                 className="h-7 sm:h-8 w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
                 src={logoImage}
                 width={659}
@@ -20,11 +20,11 @@ export function Footer() {
                 style={{ width: "auto" }}
               />
               <span className="font-headline text-xl tracking-tight font-bold">
-                Zeki<span className="text-inverse-primary"> Studio</span>
+                Z<span className="text-inverse-primary">Qube</span>
               </span>
             </Link>
             <p className="text-sm text-inverse-on-surface/70 leading-relaxed">
-              Studio rekayasa perangkat lunak modern untuk bisnis yang
+              Studio rekayasa perangkat lunak modern untuk bisnis & mahasiswa yang
               mengutamakan keandalan, kualitas kode bersih, dan hasil kerja yang
               transparan.
             </p>
@@ -37,7 +37,7 @@ export function Footer() {
             </span>
             <div className="flex flex-wrap gap-2">
               {[
-                "Next.js 14",
+                "Next.js 16",
                 "Tailwind CSS",
                 "Flutter Native",
                 "PostgreSQL",
@@ -94,7 +94,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-10 pt-6 border-t border-inverse-on-surface/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-inverse-on-surface/50">
-            © {new Date().getFullYear()} Zeki Studio. Seluruh hak
+            © {new Date().getFullYear()} ZQube. Seluruh hak
             cipta dilindungi.
           </p>
         </div>

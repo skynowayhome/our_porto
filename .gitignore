@@ -41,6 +41,7 @@ yarn-error.log*
 next-env.d.ts
 .agents
 skills-lock.json
+.claude/
 
 # agent rules
 AGENTS.md
@@ -50,4 +51,4 @@ CLAUDE.md
 stitch_dual_developer_portfolio_platform/
 prd_project_brief_skyy_partner_studio.md
 
-
+

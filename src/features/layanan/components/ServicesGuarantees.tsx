@@ -77,7 +77,7 @@ export function ServicesGuarantees() {
             </div>
             <div>
               <div className="font-headline text-sm text-on-surface font-bold">
-                Prinsip Kami, Zeki Studio
+                Prinsip Kami, ZQube
               </div>
               {/* <span className="inline-flex items-center gap-1 text-xs text-emerald-600 font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />

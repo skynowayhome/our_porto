@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://zekistudio.dev";
+  const baseUrl = "https://zqube.my.id";
   const lastModified = new Date();
 
   return [

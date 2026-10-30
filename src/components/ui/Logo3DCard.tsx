@@ -239,7 +239,7 @@ export function Logo3DCard() {
     <div
       ref={containerRef}
       className="w-full h-full min-h-[280px] cursor-grab active:cursor-grabbing"
-      aria-label="Interactive 3D Zeki Studio Logo"
+      aria-label="Interactive 3D ZQube Logo"
     />
   );
 }

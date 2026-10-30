@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { FadeInView } from "@/components/ui/FadeInView";
-import { SectionBadge } from "@/components/ui/SectionBadge";
 import { IconRocket, IconArrowRight } from "@/components/ui/Icons";
 
 export function ServicesCta() {

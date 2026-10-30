@@ -9,10 +9,10 @@ export const metadata: Metadata = {
     canonical: "/portofolio",
   },
   openGraph: {
-    title: "Portofolio & Karya Kami — Zeki Studio",
+    title: "Portofolio & Karya Kami — ZQube",
     description:
       "Studi kasus nyata: Web Order Restoran, Dashboard Finance Artacom, Aplikasi HRMS SaaS, dan Aplikasi Mobile POS.",
-    url: "https://zekistudio.dev/portofolio",
+    url: "https://zqube.my.id/portofolio",
   },
 };
 

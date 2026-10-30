@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { FadeInView } from "@/components/ui/FadeInView";
-import { contactCategories, budgetOptions } from "@/data";
+import { contactCategories, budgetOptions, umlAndDocOptions } from "@/data";
 import {
   User,
   MessageCircle,
-  Link,
+  Link as LinkIcon,
   Send,
   ArrowRight,
   ShieldCheck,
@@ -21,6 +21,10 @@ import {
   Loader2,
   AlertCircle,
   RotateCcw,
+  Workflow,
+  ClipboardList,
+  Check,
+  FileText,
 } from "lucide-react";
 
 const getCategoryIcon = (iconName: string) => {
@@ -31,6 +35,8 @@ const getCategoryIcon = (iconName: string) => {
       return <Smartphone className="w-4 h-4 text-primary" />;
     case "dashboard":
       return <LayoutDashboard className="w-4 h-4 text-primary" />;
+    case "architecture":
+      return <Workflow className="w-4 h-4 text-primary" />;
     case "shield":
       return <Shield className="w-4 h-4 text-primary" />;
     default:
@@ -49,6 +55,8 @@ const getBudgetIcon = (iconName: string, active: boolean) => {
       return <Rocket className={className} />;
     case "smartphone":
       return <Smartphone className={className} />;
+    case "clipboard_list":
+      return <ClipboardList className={className} />;
     case "shield":
       return <Shield className={className} />;
     default:
@@ -63,11 +71,28 @@ export function ContactForm() {
   const [whatsapp, setWhatsapp] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(0);
   const [selectedBudget, setSelectedBudget] = useState(0);
+  const [selectedUml, setSelectedUml] = useState<string[]>([
+    "Use Case Diagram & Skenario",
+    "ERD & Skema Relasi Database",
+    "Dokumen SRS (Software Requirement Specification)",
+  ]);
   const [description, setDescription] = useState("");
   const [projectLink, setProjectLink] = useState("");
 
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const toggleUml = (itemTitle: string) => {
+    setSelectedUml((prev) =>
+      prev.includes(itemTitle)
+        ? prev.filter((t) => t !== itemTitle)
+        : [...prev, itemTitle]
+    );
+  };
+
+  const isProjectPlanner =
+    contactCategories[selectedCategory]?.label.includes("Project Planner") ||
+    selectedCategory === 3;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -109,6 +134,7 @@ export function ContactForm() {
         budget: `${budgetOptions[selectedBudget]?.label} (${budgetOptions[selectedBudget]?.tag})`,
         description,
         projectLink: projectLink.trim() || undefined,
+        selectedUml: isProjectPlanner ? selectedUml : undefined,
       };
 
       const res = await fetch("/api/contact", {
@@ -144,11 +170,17 @@ export function ContactForm() {
     setErrorMessage("");
   };
 
-  const cleanWaNumber = whatsapp ? whatsapp.replace(/[^0-9]/g, "") : "";
+  const umlSummaryText = isProjectPlanner && selectedUml.length > 0
+    ? `\n📄 Pilihan UML/Dokumen: ${selectedUml.join(", ")}`
+    : "";
+
   const directWaText = encodeURIComponent(
-    `Halo Tim Zeki Studio, saya ${name || "Klien"}. Saya baru saja mengirim form rencana proyek untuk "${
-      contactCategories[selectedCategory]?.label
-    }". Ingin memastikan pesan sudah diterima.`
+    `Halo Tim ZQube! Saya ${name || "Klien"}.\n` +
+      `Saya baru saja mengisi formulir pemesanan di website:\n` +
+      `📌 Layanan: ${contactCategories[selectedCategory]?.label}\n` +
+      `📦 Paket/Skala: ${budgetOptions[selectedBudget]?.label}${umlSummaryText}\n\n` +
+      `💬 Catatan Kebutuhan: ${description || "-"}\n\n` +
+      `Ingin mendiskusikan kesepakatan scope & penerbitan rincian invoice/penawaran resminya. Terima kasih!`
   );
 
   return (
@@ -158,11 +190,11 @@ export function ContactForm() {
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
             <h2 className="font-headline text-lg text-on-surface font-bold">
-              Form Diskusi & Rencana Proyek
+              Form Pemesanan & Diskusi Proyek
             </h2>
           </div>
           <span className="text-xs text-on-surface-variant font-medium hidden sm:inline-block">
-            Garansi Balas &lt; 24 Jam
+            Respon Cepat via WhatsApp / Email
           </span>
         </div>
 
@@ -172,10 +204,11 @@ export function ContactForm() {
               <CheckCircle2 className="w-10 h-10" />
             </div>
             <h3 className="font-headline text-xl sm:text-2xl font-bold text-on-surface mb-2">
-              Pesan Berhasil Terkirim ke Tim Developer!
+              Pesanan / Diskusi Berhasil Diterima!
             </h3>
-            <p className="text-sm text-on-surface-variant max-w-md mb-6 leading-relaxed">
-              Terima kasih, <strong className="text-on-surface">{name}</strong>. Rencana proyek Anda sudah masuk ke email tim kami. Skyy & Aris akan meninjau dan mengirimkan estimasi ke kontak Anda.
+            <p className="text-sm text-on-surface-variant max-w-lg mb-6 leading-relaxed">
+              Terima kasih, <strong className="text-on-surface">{name}</strong>. Detail kebutuhan layanan{" "}
+              <strong className="text-primary">{contactCategories[selectedCategory]?.label}</strong> telah masuk ke sistem kami. Untuk mempercepat finalisasi ruang lingkup dan penerbitan invoice resmi, Anda dapat langsung mengonfirmasi via WhatsApp.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md">
@@ -186,7 +219,7 @@ export function ContactForm() {
                 className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold shadow-sm transition-all"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>Konfirmasi via WhatsApp</span>
+                <span>Lanjut Chat WhatsApp & Minta Invoice</span>
               </a>
 
               <button
@@ -195,22 +228,30 @@ export function ContactForm() {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-surface-container-low hover:bg-surface-container border border-surface-dim text-on-surface text-sm font-medium transition-all"
               >
                 <RotateCcw className="w-4 h-4 text-on-surface-variant" />
-                <span>Kirim Pesan Baru</span>
+                <span>Form Baru</span>
               </button>
             </div>
           </div>
         ) : (
-          <form
-            className="space-y-6"
-            onSubmit={handleSubmit}
-          >
-            {/* Error Alert */}
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            {/* Error Alert with WhatsApp Fallback */}
             {status === "error" && errorMessage && (
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
-                <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                <div>
-                  <div className="font-semibold">Perhatian</div>
-                  <div>{errorMessage}</div>
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-sm animate-in fade-in duration-200">
+                <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-600" />
+                <div className="flex-1">
+                  <div className="font-semibold text-red-900">Kendala Pengiriman Formulir</div>
+                  <div className="text-xs text-red-700 mt-1 leading-relaxed">{errorMessage}</div>
+                  <div className="mt-3">
+                    <a
+                      href={`https://wa.me/6281234567890?text=${directWaText}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-xs transition-colors"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      <span>Kirim Langsung Rincian via WhatsApp</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             )}
@@ -219,7 +260,7 @@ export function ContactForm() {
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label htmlFor="client-name" className="text-sm font-medium text-on-surface">
-                  Nama Lengkap atau Nama Usaha / Perusahaan
+                  Nama Anda / Nama Usaha / Instansi
                 </label>
                 <span className="text-xs text-error font-medium">*Wajib diisi</span>
               </div>
@@ -231,18 +272,18 @@ export function ContactForm() {
                   autoComplete="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Contoh: Rian Pratama / Kopi Kawan Studio"
+                  placeholder="Contoh: Budi Santoso / PT Solusi Usaha / Mahasiswa IF"
                   className="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-surface-dim text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
                 />
                 <User className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-on-surface-variant/40 pointer-events-none" />
               </div>
             </div>
 
-            {/* Contact Method Selector (Separated WhatsApp & Email) */}
+            {/* Contact Method Selector */}
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label className="text-sm font-medium text-on-surface">
-                  Pilih Saluran Kontak Pengiriman Estimasi
+                  Pilih Saluran Kontak Utama
                 </label>
                 <span className="text-xs text-primary font-medium">Pilih salah satu</span>
               </div>
@@ -329,26 +370,22 @@ export function ContactForm() {
                         autoComplete="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Contoh: nama@perusahaan.com"
+                        placeholder="Contoh: nama@domain.com"
                         className="w-full px-4 py-2.5 rounded-lg bg-surface-container-low border border-surface-dim text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
                       />
                     </div>
                   </div>
                 )}
               </div>
-
-              <p className="text-xs text-on-surface-variant mt-2">
-                🔒 Data kontak Anda terjamin aman dan bebas dari spam promosi atau penawaran liar.
-              </p>
             </div>
 
             {/* Category Selection */}
             <div>
               <div className="flex items-center justify-between mb-3">
                 <label className="text-sm font-medium text-on-surface">
-                  Apa jenis kebutuhan yang ingin Anda buat?
+                  Pilih Layanan Utama yang Ingin Dipesan:
                 </label>
-                <span className="text-xs text-primary font-medium">Pilih salah satu</span>
+                <span className="text-xs text-primary font-medium">4 Pilar Solusi</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {contactCategories.map((cat, index) => (
@@ -356,13 +393,13 @@ export function ContactForm() {
                     key={cat.label}
                     type="button"
                     onClick={() => setSelectedCategory(index)}
-                    className={`flex items-start gap-3 p-4 rounded-lg border text-left transition-all ${
+                    className={`flex items-start gap-3 p-4 rounded-xl border text-left transition-all ${
                       selectedCategory === index
-                        ? "bg-primary-fixed/30 border-primary/40 ring-2 ring-primary/20"
+                        ? "bg-primary-fixed/30 border-primary ring-2 ring-primary/20 shadow-sm"
                         : "bg-surface-container-low border-surface-dim hover:border-primary/30"
                     }`}
                   >
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 pt-0.5">
                       <div
                         className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
                           selectedCategory === index
@@ -378,11 +415,11 @@ export function ContactForm() {
                     <div>
                       <div className="flex items-center gap-1.5 mb-0.5">
                         {getCategoryIcon(cat.icon)}
-                        <span className="text-sm font-medium text-on-surface">
+                        <span className="text-sm font-semibold text-on-surface">
                           {cat.label}
                         </span>
                       </div>
-                      <span className="text-xs text-on-surface-variant">
+                      <span className="text-xs text-on-surface-variant leading-relaxed">
                         {cat.description}
                       </span>
                     </div>
@@ -391,14 +428,68 @@ export function ContactForm() {
               </div>
             </div>
 
-            {/* Budget Selection */}
+            {/* MODULAR UML CHECKLIST (Muncul saat memilih Project Planner) */}
+            {isProjectPlanner && (
+              <div className="p-4 sm:p-5 rounded-xl bg-primary/5 border border-primary/25 animate-in fade-in duration-300">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <Workflow className="w-4 h-4 text-primary" />
+                    <span className="text-xs font-headline font-bold uppercase tracking-wider text-primary">
+                      Pilihan Diagram UML & Dokumen (Bebas Centang Sesuai Kebutuhan)
+                    </span>
+                  </div>
+                  <span className="text-[11px] text-on-surface-variant font-medium">
+                    {selectedUml.length} terpilih
+                  </span>
+                </div>
+                <p className="text-xs text-on-surface-variant mb-3 leading-relaxed">
+                  Centang diagram atau dokumen yang ingin kami susunkan. Anda bisa memilih sebagian saja atau seluruhnya.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {umlAndDocOptions.map((opt) => {
+                    const isChecked = selectedUml.includes(opt.name);
+                    return (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        onClick={() => toggleUml(opt.name)}
+                        className={`flex items-start gap-2.5 p-3 rounded-lg border text-left transition-all text-xs cursor-pointer ${
+                          isChecked
+                            ? "bg-surface-container-lowest border-primary shadow-xs ring-1 ring-primary/30"
+                            : "bg-surface-container-low/60 border-surface-dim hover:bg-surface-container-low"
+                        }`}
+                      >
+                        <span
+                          className={`w-4 h-4 rounded mt-0.5 flex items-center justify-center shrink-0 text-[10px] ${
+                            isChecked
+                              ? "bg-primary text-on-primary"
+                              : "border border-outline"
+                          }`}
+                        >
+                          {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
+                        </span>
+                        <div>
+                          <div className="font-semibold text-on-surface">{opt.name}</div>
+                          <div className="text-[11px] text-on-surface-variant mt-0.5 leading-snug">
+                            {opt.description}
+                          </div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Budget / Model Selection */}
             <div>
               <div className="flex items-center justify-between mb-3">
                 <label className="text-sm font-medium text-on-surface">
-                  Pilihan Paket Layanan
+                  Pilihan Skala Kebutuhan:
                 </label>
                 <span className="text-xs text-on-surface-variant">
-                  Sesuai dengan skala bisnis Anda
+                  Transparan & Konsultatif
                 </span>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -407,22 +498,22 @@ export function ContactForm() {
                     key={option.label}
                     type="button"
                     onClick={() => setSelectedBudget(index)}
-                    className={`flex flex-col items-center p-3 rounded-lg border text-center transition-all ${
+                    className={`flex flex-col items-center p-3 rounded-xl border text-center transition-all ${
                       selectedBudget === index
-                        ? "bg-primary-fixed/30 border-primary/40 ring-2 ring-primary/20"
+                        ? "bg-primary-fixed/30 border-primary ring-2 ring-primary/20 shadow-xs"
                         : "bg-surface-container-low border-surface-dim hover:border-primary/30"
                     }`}
                   >
                     {option.icon && getBudgetIcon(option.icon, selectedBudget === index)}
-                    <div className="font-headline text-sm font-bold text-on-surface mb-0.5">
+                    <div className="font-headline text-xs sm:text-sm font-bold text-on-surface mb-0.5">
                       {option.label}
                     </div>
-                    <div className="text-xs text-on-surface-variant">
+                    <div className="text-[11px] text-on-surface-variant line-clamp-1">
                       {option.description}
                     </div>
                     <span
-                      className={`inline-block mt-2 px-2 py-0.5 rounded-full text-xs font-semibold ${
-                        "popular" in option && option.popular
+                      className={`inline-block mt-2 px-2 py-0.5 rounded-full text-[10px] font-semibold ${
+                        selectedBudget === index
                           ? "bg-primary text-on-primary"
                           : "bg-surface-container-high text-on-surface-variant"
                       }`}
@@ -438,10 +529,10 @@ export function ContactForm() {
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label htmlFor="client-description" className="text-sm font-medium text-on-surface">
-                  Ceritakan Kebutuhan Singkat Anda
+                  Ceritakan Kebutuhan Proyek / Sistem Anda
                 </label>
                 <span className="text-xs text-on-surface-variant">
-                  Santai saja, gunakan bahasa sehari-hari
+                  Gunakan bahasa santai sehari-hari
                 </span>
               </div>
               <textarea
@@ -450,7 +541,7 @@ export function ContactForm() {
                 required
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Ceritakan ide produk, masalah teknis yang ingin diselesaikan, atau target perkiraan waktu selesai. Jika belum punya gambaran detail, sebutkan saja tujuan utamanya..."
+                placeholder="Contoh: Saya butuh website kasir UMKM untuk 2 cabang, atau: Saya mahasiswa butuh dokumen SRS + Use Case & ERD untuk sidang skripsi..."
                 className="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-surface-dim text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
               />
             </div>
@@ -472,7 +563,7 @@ export function ContactForm() {
                   placeholder="Contoh link Google Drive, Figma, Notion, atau referensi website lain..."
                   className="w-full px-4 py-3 rounded-lg bg-surface-container-low border border-surface-dim text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
                 />
-                <Link className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-on-surface-variant/40 pointer-events-none" />
+                <LinkIcon className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-on-surface-variant/40 pointer-events-none" />
               </div>
             </div>
 
@@ -485,12 +576,12 @@ export function ContactForm() {
               {status === "loading" ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  <span>Mengirimkan Pesan ke Tim...</span>
+                  <span>Mendaftarkan Rencana Kebutuhan...</span>
                 </>
               ) : (
                 <>
                   <Send className="w-5 h-5" />
-                  <span>Kirim Pesan & Dapatkan Rencana Solusi Gratis</span>
+                  <span>Kirim Pesan & Siapkan Rincian Invoice</span>
                   <ArrowRight className="w-4 h-4" />
                 </>
               )}
@@ -498,7 +589,7 @@ export function ContactForm() {
 
             <p className="text-xs text-on-surface-variant text-center flex items-center justify-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              Tenang, semua informasi proyek Anda aman. Kami siap tandatangani NDA kapan pun dibutuhkan.
+              Data dan ide proyek Anda terjamin aman & rahasia. Invoice resmi diterbitkan setelah kesepakatan scope bersama.
             </p>
           </form>
         )}

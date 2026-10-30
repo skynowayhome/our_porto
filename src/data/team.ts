@@ -8,11 +8,11 @@ export const teamProfiles: TeamProfilesMap = {
     specialization: "Spesialis Analisis Kebutuhan & Arsitektur Sistem Web/Cloud",
     bio: "Berpengalaman 6+ tahun memastikan website bisnis tetap cepat diakses ribuan pengguna.",
     quote:
-      '"Memastikan fondasi teknologi bisnis Anda dibangun dengan arsitektur modern, performa super cepat, dan sistem keamanan tingkat tinggi yang siap berkembang tanpa kendala teknis."',
-    focus: "Fokus: Arsitektur Cloud, Web Kilat & Keamanan Sistem",
+      '"Memastikan fondasi teknologi bisnis Anda dibangun dengan arsitektur modern, kode teroptimasi, dan keandalan sistem yang siap berkembang tanpa kendala teknis."',
+    focus: "Fokus: Arsitektur Cloud, Web Modern & Keamanan Sistem",
     focusIcon: "laptop_mac",
     skills: [
-      { label: "Next.js & React (Web Kilat)", variant: "primary" },
+      { label: "Next.js & React (Full-Stack Web)", variant: "primary" },
       { label: "Tailwind CSS (Desain Modern)", variant: "neutral" },
       { label: "Docker & Cloud Staging", variant: "primary" },
       { label: "Database Otomatis", variant: "neutral" },
@@ -49,7 +49,7 @@ export const teamProfiles: TeamProfilesMap = {
         variant: "primary",
       },
       {
-        label: "Integrasi Printer Kasir & Barcode",
+        label: "Fitur Native (GPS, Kamera & Notif)",
         variant: "neutral",
       },
       { label: "Algoritma Jalur Cepat (C++)", variant: "neutral" },
@@ -125,8 +125,8 @@ export const teamProfiles: TeamProfilesMap = {
 export const teamMembers: readonly TeamMemberProfile[] = [
   teamProfiles.skyy,
   teamProfiles.aris,
-  teamProfiles.cfo,
-  teamProfiles.cmo,
+  // teamProfiles.cfo,
+  // teamProfiles.cmo,
 ];
 
 

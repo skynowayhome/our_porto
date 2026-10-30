@@ -37,6 +37,8 @@ import {
   Scale,
   Lock,
   Coins,
+  Workflow,
+  ClipboardList,
   type LucideIcon,
 } from "lucide-react";
 
@@ -193,6 +195,14 @@ export function IconCoins(props: IconProps) {
   return renderLucide(Coins, props, 16);
 }
 
+export function IconArchitecture(props: IconProps) {
+  return renderLucide(Workflow, props, 28);
+}
+
+export function IconClipboardList(props: IconProps) {
+  return renderLucide(ClipboardList, props, 22);
+}
+
 // Dynamic icon map for string-based icon lookups
 export const iconMap: Record<string, React.FC<IconProps>> = {
   dashboard: IconDashboard,
@@ -229,4 +239,6 @@ export const iconMap: Record<string, React.FC<IconProps>> = {
   lock: IconLock,
   monetization_on: IconCoins,
   shield: IconShield,
+  architecture: IconArchitecture,
+  clipboard_list: IconClipboardList,
 };

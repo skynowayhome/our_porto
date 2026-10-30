@@ -4,7 +4,6 @@ import {
   PortfolioFilterItem,
   SliderProject,
 } from "@/types";
-import { teamProfiles } from "./team";
 
 export const caseStudies: readonly CaseStudy[] = [
 
