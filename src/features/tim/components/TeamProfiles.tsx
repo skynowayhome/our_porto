@@ -99,6 +99,29 @@ export function TeamProfiles() {
                     </p>
                   </div>
 
+                  {/* Skills / Keahlian Utama */}
+                  <div className="mb-6">
+                    <div className="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider mb-2 font-headline">
+                      Keahlian & Fokus:
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {profile.skills.map((skill) => (
+                        <span
+                          key={skill.label}
+                          className={`px-2.5 py-1 rounded-lg text-xs font-medium ${
+                            skill.variant === "primary"
+                              ? "bg-primary-fixed text-primary font-bold"
+                              : skill.variant === "secondary"
+                              ? "bg-secondary-fixed text-secondary font-bold"
+                              : "bg-surface-container-high text-on-surface-variant"
+                          }`}
+                        >
+                          {skill.label}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* Bottom Actions */}
                   <div className="mt-auto pt-4 border-t border-surface-dim flex items-center justify-between gap-3">
                     <div className="flex items-center gap-2">

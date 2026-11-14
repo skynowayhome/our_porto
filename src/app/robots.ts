@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://zekistudio.dev/sitemap.xml",
+    sitemap: "https://zqube.my.id/sitemap.xml",
   };
 }

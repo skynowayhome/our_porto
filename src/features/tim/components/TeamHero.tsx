@@ -1,3 +1,5 @@
+"use client";
+
 import { FadeInView } from "@/components/ui/FadeInView";
 import {
   IconHandshake,
@@ -6,6 +8,7 @@ import {
   IconSpeed,
   IconHealthSafety,
 } from "@/components/ui/Icons";
+import { motion } from "framer-motion";
 
 const valuePills = [
   {
@@ -33,17 +36,17 @@ const valuePills = [
 export function TeamHero() {
   return (
     <section className="relative max-w-container mx-auto px-4 sm:px-6 md:px-8 pt-10 sm:pt-14 md:pt-20 pb-12 sm:pb-16 text-center">
-      {/* <FadeInView>
-        <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-surface-container-low border border-surface-dim shadow-sm mb-6">
-          <IconHandshake size={16} className="text-primary" />
-          <span className="font-headline text-xs sm:text-sm font-semibold text-primary">
-            Studio Rekayasa Digital • Dua Partner Berpengalaman
+      <FadeInView>
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 shadow-xs mb-6 text-primary">
+          <IconHandshake size={16} />
+          <span className="font-headline text-xs sm:text-sm font-semibold">
+            Partner Rekayasa Perangkat Lunak Langsung
           </span>
         </div>
-      </FadeInView> */}
+      </FadeInView>
 
       <FadeInView delay={0.1}>
-        <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold text-on-surface tracking-tight leading-[1.15] mb-5 sm:mb-6 max-w-3xl mx-auto">
+        <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-on-surface tracking-tight leading-[1.15] mb-5 sm:mb-6 max-w-3xl mx-auto">
           Kenali Rekan Teknologi Anda:{" "}
           <span className="text-primary underline decoration-secondary-container decoration-4 underline-offset-4">
             Langsung Dikerjakan Pembuatnya,
@@ -65,20 +68,21 @@ export function TeamHero() {
       <FadeInView delay={0.3} scale={true}>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
           {valuePills.map((pill) => (
-            <div
+            <motion.div
               key={pill.label}
-              className="flex flex-col items-center gap-2 p-3.5 sm:p-4 rounded-xl bg-surface-container-lowest border border-surface-dim hover:border-primary/40 transition-all hover:shadow-sm"
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="flex flex-col items-center gap-2 p-3.5 sm:p-4 rounded-2xl bg-surface-container-lowest border border-surface-dim hover:border-primary/40 transition-all hover:shadow-md cursor-default group"
             >
-              <div className="w-10 h-10 rounded-lg bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+              <div className="w-11 h-11 rounded-xl bg-primary-fixed text-primary flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
                 <pill.IconComponent size={22} />
               </div>
-              <div className="font-headline text-xs sm:text-sm text-on-surface font-semibold">
+              <div className="font-headline text-xs sm:text-sm text-on-surface font-bold">
                 {pill.label}
               </div>
               <div className="text-[11px] sm:text-xs text-on-surface-variant text-center">
                 {pill.desc}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </FadeInView>

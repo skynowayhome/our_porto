@@ -22,7 +22,7 @@ export function Header() {
             className="flex items-center gap-1.5 sm:gap-2 group"
           >
             <Image
-              alt="Zeki Studio Logo"
+              alt="ZQube Logo"
               className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105"
               src={logoImage}
               width={659}
@@ -31,7 +31,7 @@ export function Header() {
               style={{ width: "auto" }}
             />
             <span className="font-headline text-xl sm:text-2xl tracking-tight text-on-surface font-bold">
-              Zeki<span className="text-primary font-bold"> Studio</span>
+              Z<span className="text-primary font-bold">Qube</span>
             </span>
           </Link>
         </div>

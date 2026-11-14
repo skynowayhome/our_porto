@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 import { sliderProjects } from "@/data";
 import { SliderProject } from "@/types";
 import { FadeInView } from "@/components/ui/FadeInView";
@@ -16,6 +16,7 @@ import {
   Truck,
   ChevronLeft,
   ChevronRight,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 
@@ -40,8 +41,8 @@ function ProjectCard({
     <div
       className={`h-full rounded-2xl overflow-hidden border transition-all duration-500 ${
         isActive
-          ? "bg-surface-container-lowest border-primary/30 shadow-2xl shadow-primary/10 ring-1 ring-primary/10"
-          : "bg-surface-container-lowest border-surface-dim shadow-sm"
+          ? "bg-surface-container-lowest border-primary/40 shadow-2xl shadow-primary/10 ring-2 ring-primary/20"
+          : "bg-surface-container-lowest border-surface-dim shadow-xs hover:border-outline-variant"
       }`}
     >
       {/* ── Image / Placeholder Area ── */}
@@ -99,8 +100,8 @@ function ProjectCard({
         )}
 
         {/* Category overlay badge */}
-        <div className="absolute top-4 right-4">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/20 backdrop-blur-md text-white text-xs font-semibold">
+        <div className="absolute top-4 right-4 z-10">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md text-white text-xs font-semibold shadow-xs">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             {project.category}
           </span>
@@ -108,22 +109,24 @@ function ProjectCard({
       </div>
 
       {/* ── Content Area ── */}
-      <div className="p-5 sm:p-6 flex flex-col">
-        <h3 className="font-headline text-lg sm:text-xl font-bold text-on-surface mb-2 leading-tight">
-          {project.title}
-        </h3>
-        <p className="text-on-surface-variant text-sm leading-relaxed mb-5 line-clamp-3 flex-1">
-          {project.description}
-        </p>
+      <div className="p-5 sm:p-6 flex flex-col justify-between">
+        <div>
+          <h3 className="font-headline text-lg sm:text-xl font-bold text-on-surface mb-2 leading-tight">
+            {project.title}
+          </h3>
+          <p className="text-on-surface-variant text-sm leading-relaxed mb-5 line-clamp-3">
+            {project.description}
+          </p>
+        </div>
 
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-1.5 pt-3 border-t border-surface-dim/70">
           {project.techStack.map((tech, idx) => (
             <span
               key={tech}
               className={`px-2.5 py-1 rounded-md text-xs font-medium transition-colors ${
                 idx === 0
-                  ? "bg-primary-fixed text-on-primary-fixed-variant font-semibold"
+                  ? "bg-primary-fixed text-primary font-bold"
                   : "bg-surface-container-high text-on-surface-variant"
               }`}
             >
@@ -136,39 +139,34 @@ function ProjectCard({
   );
 }
 
-/* ─── Progress Bar ─── */
+/* ─── Animated Progress Bar ─── */
 function SliderProgress({
   activeIndex,
   total,
-  isPaused,
+  goTo,
 }: {
   activeIndex: number;
   total: number;
-  isPaused: boolean;
+  goTo: (idx: number) => void;
 }) {
   return (
     <div className="flex items-center justify-center gap-2 mt-8 sm:mt-10">
       {Array.from({ length: total }).map((_, i) => (
-        <div key={i} className="relative">
+        <button
+          key={i}
+          type="button"
+          onClick={() => goTo(i)}
+          className="relative p-1 group cursor-pointer"
+          aria-label={`Lihat slide proyek ${i + 1}`}
+        >
           <span
             className={`block rounded-full transition-all duration-500 ease-out ${
               i === activeIndex
-                ? "w-10 h-2.5 bg-primary"
-                : "w-2.5 h-2.5 bg-surface-dim hover:bg-outline-variant cursor-pointer"
+                ? "w-10 h-2.5 bg-primary shadow-xs"
+                : "w-2.5 h-2.5 bg-surface-dim group-hover:bg-outline"
             }`}
           />
-          {/* Auto-play progress fill on active dot */}
-          {i === activeIndex && !isPaused && (
-            <motion.span
-              className="absolute inset-0 rounded-full bg-primary-container origin-left"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 5, ease: "linear" }}
-              key={`progress-${activeIndex}`}
-              style={{ zIndex: -1 }}
-            />
-          )}
-        </div>
+        </button>
       ))}
     </div>
   );
@@ -269,19 +267,47 @@ export function ProjectSlider() {
   return (
     <section className="py-10 sm:py-16">
       {/* Section header */}
-      <div className="max-w-container mx-auto px-5 sm:px-8 mb-8 sm:mb-12">
+      <div className="max-w-container mx-auto px-5 sm:px-8 mb-6 sm:mb-8">
         <FadeInView>
-          <SectionBadge label="Karya & Proyek Kami" />
-          <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-on-surface tracking-tight mb-3">
-            Proyek yang Pernah Kami{" "}
-            <span className="text-primary">Bangun & Kerjakan</span>
-          </h2>
-          <p className="text-on-surface-variant text-sm sm:text-base leading-relaxed max-w-2xl">
-            Berbagai solusi digital yang telah kami rancang dan kembangkan untuk
-            kebutuhan nyata bisnis — dari sistem manajemen hingga platform
-            e-commerce.
-          </p>
+          <SectionBadge label="Karya & Proyek Terpilih" />
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mt-2">
+            <div>
+              <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-extrabold text-on-surface tracking-tight mb-2">
+                Proyek Nyata yang Telah Kami{" "}
+                <span className="text-primary">Bangun & Rilis</span>
+              </h2>
+              <p className="text-on-surface-variant text-sm sm:text-base leading-relaxed max-w-2xl">
+                Solusi perangkat lunak yang telah teruji untuk kebutuhan bisnis riil —
+                dari sistem logistik multi-cabang hingga dashboard analitik keuangan.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 self-start md:self-auto">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Geser atau klik kartu untuk menjelajah</span>
+              </span>
+            </div>
+          </div>
         </FadeInView>
+
+        {/* Quick category jump pills */}
+        <div className="flex flex-wrap gap-2 mt-6">
+          {sliderProjects.map((p, idx) => (
+            <button
+              key={p.id}
+              type="button"
+              onClick={() => goTo(idx)}
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                idx === activeIndex
+                  ? "bg-primary text-on-primary shadow-xs"
+                  : "bg-surface-container-low hover:bg-surface-container text-on-surface border border-surface-dim"
+              }`}
+            >
+              {p.title.split("(")[0]}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Slider viewport */}
@@ -315,7 +341,7 @@ export function ProjectSlider() {
                 style={{ width: cardWidth }}
                 animate={{
                   scale: i === activeIndex ? 1 : 0.88,
-                  opacity: offset === 0 ? 1 : offset === 1 ? 0.55 : 0.3,
+                  opacity: offset === 0 ? 1 : offset === 1 ? 0.6 : 0.35,
                   y: i === activeIndex ? 0 : 12,
                 }}
                 transition={{
@@ -337,43 +363,26 @@ export function ProjectSlider() {
         {/* Navigation arrows */}
         <button
           onClick={prev}
-          className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-surface-container-lowest/90 backdrop-blur-md border border-surface-dim shadow-lg flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-250 active:scale-90"
+          className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-surface-container-lowest/90 backdrop-blur-md border border-surface-dim shadow-lg flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-200 active:scale-90 cursor-pointer"
           aria-label="Proyek sebelumnya"
         >
           <ChevronLeft className="w-[22px] h-[22px]" />
         </button>
         <button
           onClick={next}
-          className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-surface-container-lowest/90 backdrop-blur-md border border-surface-dim shadow-lg flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-250 active:scale-90"
+          className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-surface-container-lowest/90 backdrop-blur-md border border-surface-dim shadow-lg flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-200 active:scale-90 cursor-pointer"
           aria-label="Proyek selanjutnya"
         >
           <ChevronRight className="w-[22px] h-[22px]" />
         </button>
       </div>
 
-      {/* Dot indicators */}
-      <div className="flex items-center justify-center gap-2.5 mt-8 sm:mt-10">
-        {sliderProjects.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goTo(i)}
-            className="relative p-1 group"
-            aria-label={`Proyek ${i + 1}`}
-          >
-            <span
-              className={`block rounded-full transition-all duration-500 ease-out ${
-                i === activeIndex
-                  ? "w-9 h-2.5 bg-primary"
-                  : "w-2.5 h-2.5 bg-surface-dim group-hover:bg-outline"
-              }`}
-            />
-          </button>
-        ))}
-      </div>
+      {/* Progress Dots Component */}
+      <SliderProgress activeIndex={activeIndex} total={total} goTo={goTo} />
 
       {/* Counter */}
       <div className="flex justify-center mt-4">
-        <span className="text-xs text-on-surface-variant font-headline font-medium">
+        <span className="text-xs text-on-surface-variant font-headline font-semibold">
           <span className="text-primary font-bold">{String(activeIndex + 1).padStart(2, "0")}</span>
           <span className="mx-1.5 text-surface-dim">/</span>
           <span>{String(total).padStart(2, "0")}</span>

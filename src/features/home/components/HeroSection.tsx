@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { FadeInView } from "@/components/ui/FadeInView";
 import { Hero3DCanvas } from "@/components/ui/Hero3DCanvas";
+import { HighFiveCounter } from "@/components/ui/HighFiveCounter";
 import {
   IconRocket,
   IconArrowDown,
@@ -8,12 +12,30 @@ import {
   IconShield,
   IconHeadset,
 } from "@/components/ui/Icons";
+import { Sparkles } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative max-w-container mx-auto px-4 sm:px-6 md:px-8 pt-10 sm:pt-14 md:pt-18 pb-14 sm:pb-20 flex flex-col items-center text-center">
+    <section className="relative max-w-container mx-auto px-4 sm:px-6 md:px-8 pt-8 sm:pt-12 md:pt-16 pb-14 sm:pb-20 flex flex-col items-center text-center">
+      {/* Live studio status pill + HighFive widget */}
+      <FadeInView delay={0.05}>
+        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-6 sm:mb-7">
+          <Link
+            href="/kontak"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container border border-surface-dim hover:border-primary/40 shadow-xs text-xs font-semibold text-on-surface transition-all duration-200 group"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>Menerima Proyek Baru Bulan Ini</span>
+            <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-bold group-hover:scale-105 transition-transform">
+              2 Slot
+            </span>
+          </Link>
+          <HighFiveCounter />
+        </div>
+      </FadeInView>
+
       <FadeInView delay={0.1}>
-        <h1 className="font-headline text-3xl sm:text-5xl md:text-6xl font-bold text-on-surface max-w-4xl tracking-tight leading-[1.18] mb-5 sm:mb-6">
+        <h1 className="font-headline text-3xl sm:text-5xl md:text-6xl font-extrabold text-on-surface max-w-4xl tracking-tight leading-[1.18] mb-5 sm:mb-6">
           Bikin Website & Aplikasi Bisnis Jadi{" "}
           <span className="text-primary underline decoration-secondary-container decoration-4 underline-offset-4">
             Cepat, Menawan,
@@ -40,31 +62,32 @@ export function HeroSection() {
 
       <FadeInView delay={0.3}>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 w-full max-w-md mb-12 sm:mb-14">
-
           <Link
             href="/kontak"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-lg bg-primary text-on-primary font-headline font-semibold text-sm tracking-wide shadow-[0_6px_20px_rgba(39,94,149,0.25)] hover:bg-[#1f4e7d] hover:shadow-[0_8px_25px_rgba(39,94,149,0.32)] hover:-translate-y-0.5 active:scale-95 transition-all duration-200"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-xl bg-primary text-on-primary font-headline font-semibold text-sm tracking-wide shadow-[0_6px_20px_rgba(39,94,149,0.25)] hover:bg-[#1f4e7d] hover:shadow-[0_8px_25px_rgba(39,94,149,0.32)] hover:-translate-y-0.5 active:scale-95 transition-all duration-200"
           >
             <IconRocket size={20} />
             <span>Mulai Konsultasi Proyek</span>
           </Link>
-          <Link
-            href="/portofolio"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-headline font-semibold text-sm border border-surface-dim shadow-sm hover:border-outline transition-all duration-200"
+          <a
+            href="#simulasi"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container text-on-surface font-headline font-semibold text-sm border border-surface-dim shadow-xs hover:border-primary/40 hover:-translate-y-0.5 active:scale-95 transition-all duration-200"
           >
-            <span>Lihat Contoh Hasil Kerja</span>
-            <IconArrowDown size={18} className="text-primary" />
-          </Link>
+            <Sparkles size={18} className="text-primary" />
+            <span>Coba Simulasi Interaktif</span>
+            <IconArrowDown size={16} className="text-primary" />
+          </a>
         </div>
       </FadeInView>
 
+      {/* Trust Metrics Cards with Hover Lift */}
       <FadeInView delay={0.4} scale={true}>
-        <div className="w-full max-w-4xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 p-2 sm:p-2.5 rounded-xl bg-surface-container-low/90 border border-surface-dim shadow-md">
+        <div className="w-full max-w-4xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 p-2 sm:p-2.5 rounded-2xl bg-surface-container-low/90 border border-surface-dim shadow-md">
           {[
             {
               icon: "speed",
-              title: "Super Cepat & Stabil",
-              desc: "Aplikasi ringan dibuka & anti-down",
+              title: "Arsitektur Andal & Rapi",
+              desc: "Kode terstruktur & mudah dikembangkan",
               bg: "bg-primary-fixed",
               color: "text-primary",
               IconComponent: IconSpeed,
@@ -86,12 +109,13 @@ export function HeroSection() {
               IconComponent: IconHeadset,
             },
           ].map((metric) => (
-            <div
+            <motion.div
               key={metric.title}
-              className="flex items-center gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-lg bg-surface-container-lowest border border-surface-dim hover:border-primary/40 transition-all hover:shadow-sm"
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="flex items-center gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-surface-container-lowest border border-surface-dim hover:border-primary/40 transition-all hover:shadow-md text-left group"
             >
               <div
-                className={`flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-lg shrink-0 ${metric.bg} ${metric.color}`}
+                className={`flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl shrink-0 ${metric.bg} ${metric.color} group-hover:scale-110 transition-transform`}
               >
                 <metric.IconComponent size={24} />
               </div>
@@ -103,7 +127,7 @@ export function HeroSection() {
                   {metric.desc}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </FadeInView>

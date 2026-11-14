@@ -13,6 +13,7 @@ export async function POST(req: Request) {
       budget,
       description,
       projectLink,
+      selectedUml,
     } = body;
 
     // Basic validation
@@ -49,7 +50,15 @@ export async function POST(req: Request) {
     const recipient = process.env.MAIL_TO || "zeki.studiodev@gmail.com";
 
     if (!smtpPass) {
-      console.warn("SMTP_PASS is not configured in environment variables.");
+      console.warn("Peringatan: SMTP_PASS belum diset di Environment Variables.");
+      return NextResponse.json(
+        {
+          error:
+            "Sistem email pengiriman otomatis sedang dalam konfigurasi (SMTP_PASS belum diatur). Silakan gunakan tombol WhatsApp di bawah untuk langsung terhubung dengan tim kami.",
+          needsConfig: true,
+        },
+        { status: 503 }
+      );
     }
 
     // Format WhatsApp phone for wa.me link if available
@@ -70,8 +79,6 @@ export async function POST(req: Request) {
     const emailSubject = `Prospek Proyek Baru: ${name} (${category || "Diskusi Sistem"})`;
 
     // ── Design tokens ──
-    // All critical styling is applied inline per element because
-    // Gmail / Outlook frequently strip or override <style> blocks.
     const ink    = "#0f0f0f";
     const accent = "#1a1a2e";
     const sub    = "#52525b";
@@ -87,13 +94,28 @@ export async function POST(req: Request) {
 
     const timestamp = new Date().toLocaleString("id-ID", { timeZone: "Asia/Jakarta" });
 
+    const umlListHtml = Array.isArray(selectedUml) && selectedUml.length > 0
+      ? `
+      <tr>
+        <td style="background:${white};padding:0 40px 24px 40px;">
+          <p style="margin:0 0 10px 0;font-family:${mono};font-size:9px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:${faint};">Pilihan Diagram UML & Dokumen</p>
+          <div style="background:#f0f5fa;border:1px solid #c9def5;border-radius:8px;padding:14px 18px;">
+            <ul style="margin:0;padding-left:18px;font-family:${font};font-size:13px;line-height:1.7;color:#1e3a5f;">
+              ${selectedUml.map((u: string) => `<li style="margin-bottom:3px;"><strong>${u}</strong></li>`).join("")}
+            </ul>
+          </div>
+        </td>
+      </tr>
+      `
+      : "";
+
     const emailHtml = `
       <!DOCTYPE html>
       <html lang="id" dir="ltr">
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Diskusi Proyek Baru — Zeki Studio</title>
+        <title>Diskusi Proyek Baru — ZQube</title>
       </head>
       <body style="margin:0;padding:0;background-color:${bg};-webkit-font-smoothing:antialiased;">
 
@@ -116,9 +138,9 @@ export async function POST(req: Request) {
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                       <tr>
                         <td>
-                          <p style="margin:0 0 16px 0;font-family:${mono};font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:${muted};">Zeki Studio</p>
+                          <p style="margin:0 0 16px 0;font-family:${mono};font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:${muted};">ZQube</p>
                           <h1 style="margin:0;font-family:${font};font-size:26px;font-weight:700;letter-spacing:-0.5px;color:${ink};line-height:1.2;">Diskusi Proyek Baru</h1>
-                          <p style="margin:10px 0 0 0;font-family:${font};font-size:14px;color:${sub};line-height:1.55;">Formulir konsultasi masuk dari zekistudio.dev</p>
+                          <p style="margin:10px 0 0 0;font-family:${font};font-size:14px;color:${sub};line-height:1.55;">Formulir konsultasi masuk dari zqube.my.id</p>
                         </td>
                         <td width="56" style="vertical-align:top;text-align:right;">
                           <table role="presentation" cellpadding="0" cellspacing="0" style="display:inline-block;">
@@ -187,13 +209,15 @@ export async function POST(req: Request) {
                           <span style="display:inline-block;padding:6px 14px;border:1px solid ${line};border-radius:100px;font-family:${font};font-size:12px;font-weight:600;color:${accent};background:${card};">${category || "Umum"}</span>
                         </td>
                         <td width="50%" style="vertical-align:top;">
-                          <p style="margin:0 0 8px 0;font-family:${mono};font-size:9px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:${faint};">Anggaran</p>
+                          <p style="margin:0 0 8px 0;font-family:${mono};font-size:9px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:${faint};">Paket / Skala</p>
                           <span style="display:inline-block;padding:6px 14px;border:1px solid ${line};border-radius:100px;font-family:${font};font-size:12px;font-weight:600;color:${accent};background:${card};">${budget || "Konsultasi"}</span>
                         </td>
                       </tr>
                     </table>
                   </td>
                 </tr>
+
+                ${umlListHtml}
 
                 <!-- ====== DIVIDER ====== -->
                 <tr><td style="background:${white};padding:0 40px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="border-top:1px solid ${line};font-size:0;line-height:0;height:1px;">&nbsp;</td></tr></table></td></tr>
@@ -238,7 +262,7 @@ export async function POST(req: Request) {
                         }
                         ${
                           email
-                            ? `<td style="padding:0;"><a href="mailto:${email}?subject=Tindak%20Lanjut%20Diskusi%20Proyek%20Zeki%20Studio" style="display:inline-block;padding:12px 27px;border-radius:8px;font-family:${font};font-size:13px;font-weight:600;text-decoration:none;background:${white};color:${accent};border:1.5px solid ${border};letter-spacing:0.2px;">Balas via Email</a></td>`
+                            ? `<td style="padding:0;"><a href="mailto:${email}?subject=Tindak%20Lanjut%20Diskusi%20Proyek%20ZQube" style="display:inline-block;padding:12px 27px;border-radius:8px;font-family:${font};font-size:13px;font-weight:600;text-decoration:none;background:${white};color:${accent};border:1.5px solid ${border};letter-spacing:0.2px;">Balas via Email</a></td>`
                             : ""
                         }
                       </tr>
@@ -252,11 +276,11 @@ export async function POST(req: Request) {
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                       <tr>
                         <td>
-                          <p style="margin:0 0 4px 0;font-family:${font};font-size:11px;font-weight:500;color:${muted};line-height:1.6;">Pesan otomatis dari formulir kontak zekistudio.dev</p>
+                          <p style="margin:0 0 4px 0;font-family:${font};font-size:11px;font-weight:500;color:${muted};line-height:1.6;">Pesan otomatis dari formulir kontak zqube.my.id</p>
                           <p style="margin:0;font-family:${mono};font-size:10px;color:${faint};letter-spacing:0.3px;">${timestamp} WIB</p>
                         </td>
                         <td width="80" style="text-align:right;vertical-align:middle;">
-                          <p style="margin:0;font-family:${mono};font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:${border};">ZS</p>
+                          <p style="margin:0;font-family:${mono};font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:${border};">ZQ</p>
                         </td>
                       </tr>
                     </table>
@@ -269,7 +293,7 @@ export async function POST(req: Request) {
               <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
                 <tr>
                   <td style="padding:20px 40px 0 40px;text-align:center;">
-                    <p style="margin:0;font-family:${font};font-size:10px;color:${muted};line-height:1.5;">zekistudio.dev</p>
+                    <p style="margin:0;font-family:${font};font-size:10px;color:${muted};line-height:1.5;">zqube.my.id</p>
                   </td>
                 </tr>
               </table>
@@ -283,7 +307,7 @@ export async function POST(req: Request) {
 
     // Send the email
     await transporter.sendMail({
-      from: `"Zeki Studio Website" <${smtpUser}>`,
+      from: `"ZQube Website" <${smtpUser}>`,
       to: recipient,
       replyTo: email || undefined,
       subject: emailSubject,
