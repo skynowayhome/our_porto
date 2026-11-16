@@ -45,9 +45,9 @@ export async function POST(req: Request) {
       );
     }
 
-    const smtpUser = process.env.SMTP_USER || "zeki.studiodev@gmail.com";
+    const smtpUser = process.env.SMTP_USER || "zqubestudio@gmail.com";
     const smtpPass = process.env.SMTP_PASS;
-    const recipient = process.env.MAIL_TO || "zeki.studiodev@gmail.com";
+    const recipient = process.env.MAIL_TO || "zqubestudio@gmail.com";
 
     if (!smtpPass) {
       console.warn("Peringatan: SMTP_PASS belum diset di Environment Variables.");
