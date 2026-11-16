@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
@@ -14,20 +14,20 @@ interface FloatingParticle {
 const EMOJIS = ["👏", "🚀", "☕", "🔥", "✨", "💻", "🎉", "💙"];
 
 export function HighFiveCounter() {
-  const [count, setCount] = useState<number>(() => {
-    if (typeof window !== "undefined") {
-      try {
-        const stored = localStorage.getItem("zeki_high_fives");
-        if (stored) return parseInt(stored, 10);
-      } catch {
-        // ignore
-      }
-    }
-    return 128;
-  });
-
+  const [count, setCount] = useState<number>(128);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [particles, setParticles] = useState<FloatingParticle[]>([]);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("zeki_high_fives");
+      if (stored) {
+        setCount(parseInt(stored, 10));
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
 
   const handleClick = () => {
     const nextCount = count + 1;
